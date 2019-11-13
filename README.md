@@ -15,7 +15,7 @@ There are two main ways to use the distribution:
 ---
 
 Method Diagram: 
-![alt text](https://github.com/proximax-storage/community-onboarding/blob/master/images/onb-methods1x.jpg?raw=true "dont worry about the docker image... it's coming...")
+![alt text](https://github.com/proximax-storage/community-onboarding/blob/master/images/onb-methods1xx.jpg?raw=true "dont worry about the docker image... it's coming...")
 
 
 ---
