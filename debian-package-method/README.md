@@ -36,5 +36,32 @@ wget https://proximax-vagrant-storage.s3-ap-southeast-1.amazonaws.com/sirius-cha
 
 ---
 
+
+### Update your OS:
+```bash
+
+sudo apt update -y && sudo apt upgrade -y
+
+```
+
+---
+
+
+
+
+### Install the Package with APT:
+```bash
+
+sudo apt install ./sirius-chain-0.4.3-2.deb
+
+```
+
+Marvel at how the process installs the dependencies.
+
+---
+
+
+
+
 blah blah
 
