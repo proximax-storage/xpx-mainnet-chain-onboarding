@@ -212,3 +212,14 @@ SUCCESS PINGS : 0
 
 
 Take note of the "heights" statement in the logs, which shows that the blockchain creates new blocks every 15 seconds (by default).
+
+
+---
+
+# Staking?
+Simply put your harvestKey into configfile:
+```
+/etc/sirius/chain/mainnet/resources/config-harvesting.properties
+```
+
+
