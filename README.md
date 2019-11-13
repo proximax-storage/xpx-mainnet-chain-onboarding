@@ -1,6 +1,6 @@
 # Onboarding the Community into ProximaX Sirius MAINNET
 
-This readme contains the official ProximaX instructions on how to use the community distribution for a Sirius Blockchain Peer.  The deployable Peer automatically hooks-up to ProximaX MAINNET, provided you have setup the harvesterKey.
+This readme contains the official ProximaX instructions on how to use the community distribution for a Sirius Blockchain Peer.  The deployable Peer automatically hooks-up to ProximaX MAINNET, provided you setup the harvesterKey.
 
 
 
