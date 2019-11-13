@@ -71,4 +71,8 @@ sudo sirius.bc /etc/sirius/chain/mainnet
 
 
 # Staking?
+Simply put your harvestKey into configfile:
+```
+/etc/sirius/chain/mainnet/resources/config-harvesting.properties
+```
 
