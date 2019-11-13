@@ -62,6 +62,13 @@ Marvel at how the process installs the dependencies.
 
 
 
+### Run the Sirius Peer using the MAINNET configs:
+```bash
 
-blah blah
+sudo sirius.bc /etc/sirius/chain/mainnet
+
+```
+
+
+# Staking?
 
