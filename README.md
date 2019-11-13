@@ -41,16 +41,16 @@ Access the installation steps [here](https://www.vagrantup.com/intro/getting-sta
 This step will show how to obtain a community peer vagrantbox based on Proximax Sirius Peer v0.4.1:
 
 ```bash
-mkdir -m 777 ~/proximax-peer-v2
-cd ~/proximax-peer-v2
-wget https://proximax-vagrant-storage.s3-ap-southeast-1.amazonaws.com/proximax-sirius-v0.4.1-2.box
+mkdir -m 777 ~/proximax-community-peer-mainnet
+cd ~/proximax-community-peer-mainnet
+wget https://proximax-vagrant-storage.s3-ap-southeast-1.amazonaws.com/proximax-sirius-peer-v0.4.3.box
 ```
 
 
 Once download completes, setup your vagrant environment to point to the boxfile, then initiatize it:
 ```bash
-vagrant box add proximax-community-peer-v2 proximax-sirius-v0.4.1-2.box
-vagrant init proximax-community-peer-v2
+vagrant box add proximax-community-peer-v0.4.3 proximax-sirius-peer-v0.4.3.box
+vagrant init proximax-community-peer-v0.4.3
 ```
 
 At this point, you will have a new Vagrantfile in your current DIR.
@@ -71,34 +71,14 @@ vagrant ssh
 ## Running the Peer node daemon inside the VM
 
 
-Once inside the VM, you will notice that Nodekeys are automatically generated for you:
+Once inside the VM, please take note of the following executable PATH:
+
 ```bash
-$ vagrant ssh
-Welcome to Ubuntu 19.04 (GNU/Linux 5.0.0-17-generic x86_64)
+#check Sirius Blockchain executable:
 
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
+vagrant@vagrant:~$ which sirius.bc
+/usr/bin/sirius.bc
 
-  System information 
-  
-  System load:  0.05              Processes:           106
-  Usage of /:   4.4% of 61.80GB   Users logged in:     0
-  Memory usage: 12%               IP address for eth0: 10.0.2.15
-  Swap usage:   0%
-
- * Keen to learn Istio? It's included in the single-package MicroK8s.
-
-     https://snapcraft.io/microk8s
-
-55 updates can be installed immediately.
-32 of these updates are security updates.
-
-
-Last login: XXXXXXXX
-
-keys generated
-vagrant@vagrant:~$ 
 
 
 
@@ -106,35 +86,38 @@ vagrant@vagrant:~$
 
 
 
-### Sirius BlockChain Config Files
-Inspect the path of the config files of your Sirius Peer Node (located in path /etc/sirius/chain/resources/) :
+### Sirius BlockChain Config Files for MAINNET
+Inspect the path of the config files of your Sirius Peer Node (located in path /etc/sirius/chain/mainnet/resources/) :
 ```bash
 
-vagrant@vagrant:~$ ls -la /etc/sirius/chain/resources/
-total 88
-drwxr-xr-x 2 vagrant    1001 4096 Aug 20 10:20 .
-drwxr-xr-x 3 vagrant    1001 4096 Aug 20 03:54 ..
--rw-r--r-- 1 vagrant    1001  618 Aug 16 08:06 config-database.properties
--rw-r--r-- 1 vagrant    1001  213 Aug 16 08:06 config-extensions-broker.properties
--rw-r--r-- 1 vagrant    1001  216 Aug 16 08:06 config-extensions-recovery.properties
--rw-r--r-- 1 vagrant    1001  692 Aug 16 08:06 config-extensions-server.properties
--rw-r--r-- 1 vagrant vagrant  431 Aug 20 10:20 config-harvesting.properties
--rw-r--r-- 1 vagrant    1001   69 Aug 16 08:06 config-inflation.properties
--rw-r--r-- 1 vagrant    1001  362 Aug 19 02:21 config-logging-broker.properties
--rw-r--r-- 1 vagrant    1001  365 Aug 19 02:21 config-logging-recovery.properties
--rw-r--r-- 1 vagrant    1001  363 Aug 20 06:18 config-logging-server.properties
--rw-r--r-- 1 vagrant    1001   35 Aug 16 08:06 config-messaging.properties
--rw-r--r-- 1 vagrant    1001   30 Aug 16 08:06 config-networkheight.properties
--rw-r--r-- 1 vagrant    1001 2875 Aug 19 02:24 config-network.properties
--rw-r--r-- 1 vagrant    1001 1595 Aug 16 08:51 config-node.properties
--rw-r--r-- 1 vagrant    1001   76 Aug 16 08:06 config-pt.properties
--rw-r--r-- 1 vagrant    1001 1098 Aug 16 08:06 config-task.properties
--rw-r--r-- 1 vagrant    1001   37 Aug 16 08:06 config-timesync.properties
--rw-r--r-- 1 vagrant vagrant  289 Aug 20 10:20 config-user.properties
--rw-r--r-- 1 vagrant    1001  585 Aug 20 04:09 peers-api.json
--rw-r--r-- 1 vagrant    1001 1576 Aug 20 04:16 peers-p2p.json
--rw-r--r-- 1 vagrant    1001 2106 Aug 16 08:06 supported-entities.json
+
+vagrant@vagrant:~$ ls -la /etc/sirius/chain/mainnet/resources/
+total 108
+drwxr-xr-x 2 vagrant 1001  4096 Nov 13 07:48 .
+drwxr-xr-x 3 vagrant 1001  4096 Nov 13 07:44 ..
+-rw-r--r-- 1 vagrant 1001   656 Nov 11 08:13 config-database.properties
+-rw-r--r-- 1 vagrant 1001   213 Nov 11 08:13 config-extensions-broker.properties
+-rw-r--r-- 1 vagrant 1001   216 Nov 11 08:13 config-extensions-recovery.properties
+-rw-r--r-- 1 vagrant 1001   692 Nov 11 08:13 config-extensions-server.properties
+-rw-r--r-- 1 vagrant 1001   252 Nov 13 07:48 config-harvesting.properties
+-rw-r--r-- 1 vagrant 1001   416 Nov 11 08:14 config-immutable.properties
+-rw-r--r-- 1 vagrant 1001    67 Nov 11 08:14 config-inflation.properties
+-rw-r--r-- 1 vagrant 1001   370 Nov 11 08:14 config-logging-broker.properties
+-rw-r--r-- 1 vagrant 1001   372 Nov 11 08:25 config-logging-recovery.properties
+-rw-r--r-- 1 vagrant 1001   370 Nov 11 08:15 config-logging-server.properties
+-rw-r--r-- 1 vagrant 1001    35 Nov 11 08:15 config-messaging.properties
+-rw-r--r-- 1 vagrant 1001    29 Nov 11 08:15 config-networkheight.properties
+-rw-r--r-- 1 vagrant 1001  2575 Nov 11 08:25 config-network.properties
+-rw-r--r-- 1 vagrant 1001  1524 Nov 11 08:15 config-node.properties
+-rw-r--r-- 1 vagrant 1001    76 Nov 11 08:15 config-pt.properties
+-rw-r--r-- 1 vagrant 1001  1098 Nov 11 08:15 config-task.properties
+-rw-r--r-- 1 vagrant 1001    37 Nov 11 08:15 config-timesync.properties
+-rw-r--r-- 1 vagrant 1001   266 Nov 13 07:45 config-user.properties
+-rw-r--r-- 1 vagrant 1001  7491 Nov 11 08:15 peers-api.json
+-rw-r--r-- 1 vagrant 1001 13754 Nov 11 08:15 peers-p2p.json
+-rw-r--r-- 1 vagrant 1001  2020 Nov 11 08:15 supported-entities.json
 vagrant@vagrant:~$ 
+
 
 ```
 
@@ -148,7 +131,7 @@ vagrant@vagrant:~$
 This VM comes pre-installed with the Debian Binary of the Sirius Blockchain Peer.  The executable is already in the bin folder.  Go ahead and start the Sirius daemon:
 
 ```bash
-sudo sirius.bc /etc/sirius/chain/
+sudo sirius.bc /etc/sirius/chain/mainnet/
 ```
 
 
