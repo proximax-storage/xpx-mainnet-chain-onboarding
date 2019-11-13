@@ -131,7 +131,7 @@ sudo sirius.bc /etc/sirius/chain/mainnet/
 
 
 ### Marvel at the chain's behaviour
-Once executed, you can easily witness a new chain will be created every 15 seconds by default and the log entry looks like this:
+Once executed, you can easily witness a new chain will be created every 15 seconds by default and the SYNC log entry looks like this:
 ```bash
 
 
