@@ -2,6 +2,8 @@
 
 This readme contains the official ProximaX instructions on how to use the community distribution for a Sirius Blockchain Peer.  The deployable Peer automatically hooks-up to ProximaX MAINNET, provided you have setup the harvesterKey.
 
+For creation of your own harvestKey, please follow wiki guide here: https://github.com/proximax-storage/community-onboarding/wiki/Creating-your-MAINNET-HarvestKey-using-the-ProximaX-WALLET
+
 ## Methods of Onboarding:
 
 There are two main ways to use the distribution:
