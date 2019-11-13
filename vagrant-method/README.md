@@ -135,54 +135,22 @@ Once executed, you can easily witness a new chain will be created every 15 secon
 ```bash
 
 
-2019-08-20 10:29:31.094175 0x00007f723fa60700: <info> (chain::RemoteApiForwarder.h@66) completed 'synchronizer task' (api2uswest2 @ XXXX:7900) with result Success 
-2019-08-20 10:29:35.932941 0x00007f723fa60700: <info> (src::DiagnosticsService.cpp@39) --- current counter values ---
-  MEM CUR RSS : 118
-  MEM MAX RSS : 118
- MEM CUR VIRT : 919
-  MEM SHR RSS : 37
-TOT CONF TXES : 114872
-     ACNTST C : 46
- ACNTST C HVA : 31
-     BLKDIF C : 526
-       HASH C : 77567
- SECRETLOCK C : 0
-     CONFIG C : 1
-   CONTRACT C : 0
- REPUTATION C : 0
-     MOSAIC C : 5
-   MULTISIG C : 0
-   METADATA C : 0
-   HASHLOCK C : 0
-    UPGRADE C : 1
-         NS C : 1
-      NS C AS : 6
-      NS C DS : 6
-   PROPERTY C : 0
-     UT CACHE : 0
-    B WRITERS : 0
-      WRITERS : 5
- BLK ELEM TOT : 5
- BLK ELEM ACT : 1
-  TX ELEM TOT : 0
-  TX ELEM ACT : 0
-RB COMMIT ALL : 0
-RB COMMIT RCT : 0
-RB IGNORE ALL : 0
-RB IGNORE RCT : 0
- UNLKED ACCTS : 0
-TS OFFSET ABS : 0
-TS OFFSET DIR : 0
-  TS NODE AGE : 0
- TS TOTAL REQ : 0
- ACTIVE PINGS : 0
-  TOTAL PINGS : 0
-SUCCESS PINGS : 0
-      READERS : 0
-        TASKS : 12 
+2019-11-13 11:24:53.662099 0x00007f8828188700: <info> (chain::ChainSynchronizer.cpp@207) peer returned 400 blocks (heights 1202 - 1601) 
+2019-11-13 11:24:53.662605 0x00007f8828188700: <info> (chain::RemoteApiForwarder.h@66) completed 'synchronizer task' (tier1B-mainnet-chain-peer8 @ proioxis.brimstone.xpxsirius.io:7900) with result Success 
+2019-11-13 11:24:53.934271 0x00007f881617a700: <info> (disruptor::ConsumerDispatcher.cpp@43) completing processing of element 3 (400 blocks (heights 1202 - 1601) [CE595B87] from Remote_Pull), last consumer is 0 elements behind 
+2019-11-13 11:24:57.152197 0x00007f8828188700: <info> (chain::ChainSynchronizer.cpp@207) peer returned 400 blocks (heights 1602 - 2001) 
+2019-11-13 11:24:57.152635 0x00007f8828188700: <info> (chain::RemoteApiForwarder.h@66) completed 'synchronizer task' (tier1a-mainnet-chain-peer3 @ omicronlyrae.brimstone.xpxsirius.io:7900) with result Success 
+2019-11-13 11:24:57.392612 0x00007f881617a700: <info> (disruptor::ConsumerDispatcher.cpp@43) completing processing of element 4 (400 blocks (heights 1602 - 2001) [DC6021C9] from Remote_Pull), last consumer is 0 elements behind 
+2019-11-13 11:25:00.643511 0x00007f8828188700: <info> (chain::ChainSynchronizer.cpp@207) peer returned 400 blocks (heights 2002 - 2401) 
+2019-11-13 11:25:00.644119 0x00007f8828188700: <info> (chain::RemoteApiForwarder.h@66) completed 'synchronizer task' (tier1a-mainnet-chain-peer3 @ omicronlyrae.brimstone.xpxsirius.io:7900) with result Success 
+2019-11-13 11:25:00.883634 0x00007f881617a700: <info> (disruptor::ConsumerDispatcher.cpp@43) completing processing of element 5 (400 blocks (heights 2002 - 2401) [4462893B] from Remote_Pull), last consumer is 0 elements behind 
+2019-11-13 11:25:04.139147 0x00007f8828188700: <info> (chain::ChainSynchronizer.cpp@207) peer returned 400 blocks (heights 2402 - 2801) 
+2019-11-13 11:25:04.139515 0x00007f8828188700: <info> (chain::RemoteApiForwarder.h@66) completed 'synchronizer task' (tier1B-mainnet-chain-peer10 @ acallaris.brimstone.xpxsirius.io:7900) with result Success 
+2019-11-13 11:25:04.405145 0x00007f881617a700: <info> (disruptor::ConsumerDispatcher.cpp@43) completing processing of element 6 (400 blocks (heights 2402 - 2801) [DEE28CC8] from Remote_Pull), last consumer is 0 elements behind 
+2019-11-13 11:25:07.778694 0x00007f8828188700: <info> (chain::ChainSynchronizer.cpp@207) peer returned 400 blocks (heights 2802 - 3201) 
+2019-11-13 11:25:07.779163 0x00007f8828188700: <info> (chain::RemoteApiForwarder.h@66) completed 'synchronizer task' (tier1B-mainnet-chain-peer8 @ proioxis.brimstone.xpxsirius.io:7900) with result Success 
 
-2019-08-20 10:29:37.009770 0x00007f722d0ab700: <info> (disruptor::ConsumerDispatcher.cpp@43) completing processing of element 5 (400 blocks (heights 19602 - 20001) [862C1F55] from Remote_Pull), last consumer is 0 elements behind 
-2019-08-20 10:29:39.896084 0x00007f723fa60700: <info> (ionet::PacketSocket.cpp@450) connected to XXXX [XXXX:7900]
+
 ```
 
 
