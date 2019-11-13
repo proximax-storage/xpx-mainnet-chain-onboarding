@@ -12,10 +12,11 @@ There are two main ways to use the distribution:
 2. - [Debian/Ubuntu .deb package](https://github.com/proximax-storage/community-onboarding/tree/master/debian-package-method)
 
 
+---
 
 
 ## Staking?
----
+
 
 Stake is assigned to your Harvest Key.
 
