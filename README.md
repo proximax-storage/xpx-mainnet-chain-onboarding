@@ -25,7 +25,7 @@ Method Diagram:
 
 Stake is assigned to your Validator Key (harvestKey).
 
-For creation of your own validator key (harvestKey), please follow wiki guide here:  [Create your own MAINNET Validator Key](https://github.com/proximax-storage/community-onboarding/wiki/Creating-your-MAINNET-HarvestKey-using-the-ProximaX-WALLET) 
+For creation of your own validator key (harvestKey), please follow wiki guide here:  [Create your own MAINNET Validator Key](https://github.com/proximax-storage/community-sirius-chain-onboarding/wiki/Create-your-MAINNET-Validator-Key-(harvestKey)-using-the-ProximaX-WALLET) 
  
 
 
