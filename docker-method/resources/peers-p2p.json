@@ -1,0 +1,478 @@
+{
+  "_info": "this file contains a list of all trusted peers and can be shared",
+  "knownPeers": [
+    {
+      "publicKey": "FE24C32D19AF89A6FF9981F87BD7137793D49966B20DEA68E03B5F3ACCF29135",
+      "endpoint": {
+        "host": "genesiseridani.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "mainnet-chain-peer1",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "BD09E534071690388839CD439AD0E577FEB915540932C8F8C710C7E586B2AFB6",
+      "endpoint": {
+        "host": "genesisomicron.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "mainnet-chain-peer2",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "2CC148D0CB580FFE6A0562207120EFCA1D0AE6EC8851520067B3D50979230E32",
+      "endpoint": {
+        "host": "genesispalioxis.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "mainnet-chain-peer3",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "7595D75B23C7266C60D6832CAA75CF5C03CCBA9A8F14AE96817535F9340A8B18",
+      "endpoint": {
+        "host": "genesisicarius.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "mainnet-chain-peer4",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "4DD337B28AC46978F512F0BD1B774D378FBA2690A8A1DA3F48DB916546BBF321",
+      "endpoint": {
+        "host": "lambdamajoris.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1a-mainnet-chain-peer1",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "58A1BF52ED1B2D169D61CF4D62A1E5611B7F2DB360B4530F53332730A3A37E42",
+      "endpoint": {
+        "host": "canisperileos.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1a-mainnet-chain-peer2",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "2C8DE86352C1B73010B7AB1D2BCC3A204C3100A283D68AC9592D2B353C28F286",
+      "endpoint": {
+        "host": "omicronlyrae.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1a-mainnet-chain-peer3",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "59866C71141FB490530C60EC25D296F50CBB5E2B0402A6853F86888DE44F99BD",
+      "endpoint": {
+        "host": "euphorion.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1a-mainnet-chain-peer4",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "C026922947E7C303D73CA8643E64295A8F186F9635CF9F6AF3E448F827BAF223",
+      "endpoint": {
+        "host": "zephyrus.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1a-mainnet-chain-peer5",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "AEB5FAA67E14A3CB7B1001741D5670DBFB3D2FAB56781BFF15597B091DB8BD11",
+      "endpoint": {
+        "host": "centaurus.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1a-mainnet-chain-peer6",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "6E771270CA41A9CD0B6409755087CDE2A242DFE123B154FAAEDF85141E7C6441",
+      "endpoint": {
+        "host": "draconis.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1a-mainnet-chain-peer7",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "CAFE973F4493C03C2BC7F16731E02496B60F02B15E693FEC6D43ED61F88021E7",
+      "endpoint": {
+        "host": "amphiaraus.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1a-mainnet-chain-peer8",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "74C56E80206A46806F5B8126EB951590C59DA0C1B3F155ED2FE17D00D5B0F8D4",
+      "endpoint": {
+        "host": "cymopoleia.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1a-mainnet-chain-peer9",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "E51B9E6B2FADF30A4909A16F17471DE0D34164C0C759CC618D39EB6452C8775D",
+      "endpoint": {
+        "host": "virgohyperion.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1a-mainnet-chain-peer10",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "A9DFC5DE7BDF41D20F1BCCB352075EE1157BDB96D2A0020F9AE1CFA6C15255E1",
+      "endpoint": {
+        "host": "arahemithea.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1B-mainnet-chain-peer1",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "12CA04555664E53615661E705C5DFCD729B473DB9B2E6AB8765BB48AB2850C7D",
+      "endpoint": {
+        "host": "nemoasteria.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1B-mainnet-chain-peer2",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "EB86175A6898CD5025C00F230836EAB6F76628F543097E41850A0018BF63D4F0",
+      "endpoint": {
+        "host": "comaesolymus.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1B-mainnet-chain-peer3",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "0E933534AE4DE9C819141DDCF9C0C88F2FDCCE29DA65159CD783AB3B70BDCED4",
+      "endpoint": {
+        "host": "peleus.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1B-mainnet-chain-peer4",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "7E965C5BE804103DB9CDD268B8C37E561798C557246F5E7D08C9413365544255",
+      "endpoint": {
+        "host": "icarius.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1B-mainnet-chain-peer5",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "C7F02CD6CB03F7CA599DA8C3E07C17FE94063609B34E2E8AC79E400A281C13F1",
+      "endpoint": {
+        "host": "cruxasteropaios.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1B-mainnet-chain-peer6",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "2483F034159C2E9EA46707EFD34CF87B8091FCFF5639BA9A3A5C152C14CE4D6E",
+      "endpoint": {
+        "host": "eusebeia.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1B-mainnet-chain-peer7",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "8888D40E6FAF319F0E0B50AAA2EE1B6760B5409B783C7E0979642FCB5ED139BC",
+      "endpoint": {
+        "host": "proioxis.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1B-mainnet-chain-peer8",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "2009C4102F1536ECC15BF04DB835AF9FB5C3466C222CE89D8EDFE7290FE26592",
+      "endpoint": {
+        "host": "miriandynus.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1B-mainnet-chain-peer9",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "662E136107D903EF5E68AA161E647F6B27F130E0D8841BE1549A253CA436416C",
+      "endpoint": {
+        "host": "acallaris.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1B-mainnet-chain-peer10",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "4A83E6E1A93610BB060BB6CD7A5DEE29D4BC3247D04D9DC78A5DFCEBE4D54871",
+      "endpoint": {
+        "host": "hyperbius.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer1",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "BA08915592854431CCEAA67D562B2726039027A5DBE6E91D0E6EA0928957C593",
+      "endpoint": {
+        "host": "serpenscentaurus.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer2",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "6D92D5402645AADDD59864005723DB71691175017663605C7421317E992BFC44",
+      "endpoint": {
+        "host": "myrmidon.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer3",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "AEE9F2F875D3BB1651CC535CD28F0155A8182F228252AA134488D3E14F632AF1",
+      "endpoint": {
+        "host": "cassiopeia.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer4",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "A2931AAB1A35E5BED269881CA2197D26C24664DE068046AE9D149CBE3782280A",
+      "endpoint": {
+        "host": "borysthenis.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer5",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "C9EFE484AF9EBEB129222D9770E071B1966CE6EF1B33493E675C1815DA9B00A6",
+      "endpoint": {
+        "host": "dioscuri.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer6",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "A7A630DD03ABC89E1C60DA881536BABCD32AD157B9BD71A25401F8AA4686456D",
+      "endpoint": {
+        "host": "porphyrion.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer7",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "538D8034DBBD9091F964B647C618780C9F9E6DD8767F8AC73C84C217D14750AE",
+      "endpoint": {
+        "host": "hyperes.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer8",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "9DEC2CFAE5FA1042C54C4E3D7ACCB8051AC235C27FB00ECA3FC52951F7B75552",
+      "endpoint": {
+        "host": "zetaophiuchi.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer9",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "D6021A7A6BDD29FB72283D64F4A78758AFF660AE265623004D3862C2644D0396",
+      "endpoint": {
+        "host": "pavolyrae.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer10",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "611D65A06486765326D0E485DD192FDEF75314A2349E91225C0547B0DF402E8A",
+      "endpoint": {
+        "host": "apusmajoris.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer11",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "6D1830F5D57458A93741AAE3A834B66CB1863A017EF787C1AF0DD156B8AC9A26",
+      "endpoint": {
+        "host": "aristaeus.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer12",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "7D09BD2B76089D8DA6FA633CF47DF5DE16012F77EB3C2D9960562D0131C6BA52",
+      "endpoint": {
+        "host": "velaichnaea.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer13",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "63080995297684EBD75FA196132EF2D4569192AAEA77789224C54DDBE0BF414D",
+      "endpoint": {
+        "host": "palioxis.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer14",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "CC6E24FD64E39C4DE9121F1B4EC66436C8C066FF050DCCB6460C71C4E65AA53E",
+      "endpoint": {
+        "host": "chronosboreas.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tier1C-mainnet-chain-peer15",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "2C8D3F6C00DF1950662D28DB35059337F2C899689D4F3EF20420CCE34D663A32",
+      "endpoint": {
+        "host": "vultradastreia.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tierX-vultr-peer-node-1",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "64E11B3B7201A9A8BDD71E58190FE0E24ECF44CE7A80E809B6F4F4FEF7DC605C",
+      "endpoint": {
+        "host": "vultrhyperes.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tierX-vultr-peer-node-2",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "CD118F3BF60CF68FF5BD1EEE5713DD611227F868ACD9ACD1CD6366420491C47D",
+      "endpoint": {
+        "host": "vultrorithyia.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tierX-vultr-peer-node-3",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "AE1CD76BB5650D9848F643AE7A59D6CF66D39B1B0334FC8D28B15246149F9E4F",
+      "endpoint": {
+        "host": "vultrachelois.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "tierX-vultr-peer-node-4",
+        "roles": "Peer"
+      }
+    }
+  ]
+}

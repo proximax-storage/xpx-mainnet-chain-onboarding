@@ -1,0 +1,15 @@
+version: "3.6"
+services:
+  mainnet-peer:
+    image: proximax/proximax-sirius-chain:v0.4.3-buster
+    ports:
+      - 7902:7902
+      - 7900:7900
+      - 7901:7901
+    volumes:
+      - ./:/chainconfig
+      - ./data:/data:rw
+      - ./logs:/logs:rw
+    entrypoint: /bin/bash
+    command: -c "rm -rf /data/server.lock && /sirius/bin/sirius.bc /chainconfig"
+
