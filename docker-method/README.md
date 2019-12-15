@@ -38,7 +38,7 @@ $ sudo systemctl status docker.service
 ## Download and Extract the package
 ```
 $ wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.4.3-buster/public-mainnet-peer-package-v0.4.3.tar.gz
-$ tar -zxvf public-mainnet-peer-package-v0.4.3.tar.gz
+$ tar -xvf public-mainnet-peer-package-v0.4.3.tar.gz
 $ cd public-mainnet-peer-package-v0.4.3
 ```
 
