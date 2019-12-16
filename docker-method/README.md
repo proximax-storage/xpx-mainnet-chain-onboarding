@@ -26,6 +26,12 @@ $ curl -fsSL https://get.docker.com -o get-docker.sh
 $ sh get-docker.sh
 ```
 
+As per docker post-installation note, we recommend using Docker as a non-root user.  Therefore, you should now consider adding your user to the "docker" group with something like:
+```
+$ sudo usermod -aG docker $your_user
+```
+Remember that you will have to log out and back in for this to take effect!"
+
 Installation instructions for docker-compose can be found [here](https://docs.docker.com/compose/install/). 
 
 Enable and start Docker:
