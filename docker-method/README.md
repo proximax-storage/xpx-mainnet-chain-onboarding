@@ -133,6 +133,41 @@ $ docker-compose logs --tail=100 -f
 
 2. log files in `logs` directory
 
+## Create service and auto-start container on reboot
+```
+$ sudo nano /etc/systemd/system/sirius-chain-mainnet.service
+```
+
+Put this text in this file and replace `PATH_OF_YML_FILE`:
+```
+# /etc/systemd/system/sirius-chain-mainnet.service
+
+[Unit]
+Description=Sirius Chain Mainnet (Docker)
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=PATH_OF_YML_FILE (like: /opt/public-mainnet-onboarding)
+ExecStart=/usr/local/bin/docker-compose up -d
+ExecStop=/usr/local/bin/docker-compose down
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable sirius-chain-mainnet
+```
+
+If the Docker container isn't running yet, you can start the container using this command:
+```
+$ sudo systemctl start sirius-chain-mainnet
+```
 
 ## Helpdesk
 We have a [telegram helpdesk](https://t.me/proximaxhelpdesk) to assist general queries.
