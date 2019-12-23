@@ -19,7 +19,6 @@ The Sirius Blokchain Peer is designed to work with minimum Hardware perfomance o
 As for OS Version requirements, the debian installer will run with these minimums:
 ```
 - Debian 10 ++
-- Ubuntu 19.04 ++
 
 ```
 ---
