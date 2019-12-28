@@ -7,7 +7,7 @@ This readme contains the official ProximaX instructions on how to use the commun
 ## Methods of Onboarding:
 ---
 
-There are two main ways to use the distribution:
+There are three main ways to use the distribution:
 1. - [Vagrant Box](https://github.com/proximax-storage/community-onboarding/tree/master/vagrant-method)
 2. - [Debian/Ubuntu .deb package](https://github.com/proximax-storage/community-onboarding/tree/master/debian-package-method)
 3. - [Docker Image](https://github.com/proximax-storage/community-onboarding/tree/master/docker-method)
