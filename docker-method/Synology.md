@@ -27,8 +27,8 @@ Enable SSH access to use the tools:
 - Create a folder `proximax-sirius-chain-mainnet` in `docker`
 
 ## Download and extract peer information
-- Download: https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.4.3-buster/public-mainnet-peer-package-v0.4.3.tar.gz
-- Extract `public-mainnet-peer-package-vX.X.X.tar.gz` (use latest version) to a local folder
+- Download latest version from: https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/
+- Extract `public-mainnet-peer-package-vX.X.X.tar.gz` to a local folder
 - Copy `data`, `logs`, `resources` and `tools` folders to `proximax-sirius-chain-mainnet` (drag-and-drop to DSM)
 
 ## Configure node
