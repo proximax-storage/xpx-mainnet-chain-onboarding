@@ -42,10 +42,13 @@ $ sudo systemctl status docker.service
 ```
 
 ## Download and Extract the package
+Find the latest release on: https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases
 ```
+$ cd /tmp
 $ wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.4.3-buster/public-mainnet-peer-package-v0.4.3.tar.gz
 $ tar -xvf public-mainnet-peer-package-v0.4.3.tar.gz
-$ cd public-mainnet-peer-package-v0.4.3
+$ cp -R public-mainnet-peer-package-v0.4.3/ /opt/public-mainnet-onboarding
+$ cd /opt/public-mainnet-onboarding
 ```
 
 ## Generate a keypair
@@ -167,6 +170,14 @@ $ sudo systemctl enable sirius-chain-mainnet
 If the Docker container isn't running yet, you can start the container using this command:
 ```
 $ sudo systemctl start sirius-chain-mainnet
+```
+
+## Reset Chain
+When the service won't start or you have a corrupted database, you can reset the chain by deleting the `data` folder and copy the data folder from the extracted .tar.gz file.
+```
+$ cd /opt/public-mainnet-onboarding
+$ rm -rf data
+$ cp -R /tmp/public-mainnet-peer-package-v0.4.3/data .
 ```
 
 ## Helpdesk
