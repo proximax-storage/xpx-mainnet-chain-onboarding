@@ -1,7 +1,9 @@
 # ProximaX 天狼星 主网节点搭建
+
 ~~# ProximaX Sirius MAINNET Onboarding~~
 
 ## 操作系统要求
+
 ~~## OS Requirements~~
 
 确认你的内网允许 流入/流出 这些端口的流量
@@ -13,6 +15,7 @@
 - 7902/tcp
 
 系统要求的说明：
+
 ~~A note on System Requirements:~~
 
 从理论上讲，此docker化的天狼星节点软件包可以在任何运行Docker 19.03.3版和docker-compose 1.24.0版的操作系统上运行。
@@ -31,7 +34,9 @@
 - CentOS 7 ++
 
 ## 前提条件
+
 ~~## Pre-requisite~~
+
 这种搭建方法需要`docker`和`docker-compose`。
 
 ~~This onboarding method requires `docker` and `docker-compose`.~~  
@@ -68,6 +73,7 @@ $ sudo systemctl status docker.service
 ```
 
 ## 下载和解压包
+
 ~~## Download and Extract the package~~
 ```
 $ wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.4.3-buster/public-mainnet-peer-package-v0.4.3.tar.gz
@@ -76,12 +82,14 @@ $ cd public-mainnet-peer-package-v0.4.3
 ```
 
 ## 创建一个密钥对
+
 ~~## Generate a keypair~~
 ```
 $ tools/gen_key_pair_addr
 ```
 
 ## 在[config-user.properties](resources/config-user.properties)中输入私钥
+
 ~~## Insert private key in [config-user.properties](resources/config-user.properties)~~
 
 将`BOOTKEY_PRIVATE_KEY`替换为生成的私钥.这个账号持有节点声望
@@ -99,6 +107,7 @@ pluginsDirectory =
 ```
 
 ## 在[config-node.properties](resources/config-node.properties)填一个友好的名字(可选的)
+
 ~~## Assign a friendly name in  [config-node.properties](resources/config-node.properties) (OPTIONAL)~~
 
 将域名或公网IP地址添加到“host”参数，将其保留为空会自动检测。添加一个友好的名
@@ -118,6 +127,7 @@ roles = Peer
 ```
 
 ## 委托验证
+
 ~~## Delegated Validating~~
 
 您可以通过运行以下工具来激活帐户以进行委托验证：
@@ -153,33 +163,41 @@ maxUnlockedAccounts = 5
 ~~**For more info, please read our online documentations [here](https://bcdocs.xpxsirius.io/docs/protocol/validating/)**~~
 
 ## 开启节点
+
 ~~## Start the Peer Node~~
 ```
 $ docker-compose up -d
 ```
 
 ## 检查容器是否运行
+
 ~~## Check if container is running~~
 ```
 $ docker container ls
 ```
 
 ## 停止节点
+
 ~~## Stop the Peer Node~~
 ```
 $ docker-compose down
 ```
 
 ## 重启节点
+
 ~~## Restart the Peer Node~~
 ```
 $ docker-compose restart
 ```
 
 ## 检查节点日志
+
 ~~## Check logs~~
+
 有两种方法查看日志
+
 ~~There are 2 ways to view the logs:~~
+
 1. docker日志
 
 ~~1. docker logs~~
@@ -193,6 +211,7 @@ $ docker-compose logs --tail=100 -f
 ~~2. log files in `logs` directory~~
 
 ## 创建服务，在重启后自动启动容器
+
 ~~## Create service and auto-start container on reboot~~
 ```
 $ sudo nano /etc/systemd/system/sirius-chain-mainnet.service
@@ -234,6 +253,7 @@ $ sudo systemctl start sirius-chain-mainnet
 ```
 
 ## 桌面维护团队
+
 ~~## Helpdesk~~
 
 我们拥有[telegram桌面维护团队](https://t.me/proximaxhelpdesk)来支援一般咨询
