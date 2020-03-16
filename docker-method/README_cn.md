@@ -150,7 +150,7 @@ maxUnlockedAccounts = 5
 ```
 
 通过使用生成的交易哈希或您的帐户地址在线检查ProximaX [区块链浏览器]
-（https://explorer.xpxsirius.io）
+（https://explorer.xpxsirius.io)
 
 ~~Verify that your account has successfully activated delegated validation by checking ProximaX online [explorer](https://explorer.xpxsirius.io) using the generated transaction hash or using your account address.~~
 
