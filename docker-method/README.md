@@ -42,16 +42,56 @@ $ sudo systemctl status docker.service
 ```
 
 ## Download and Extract the package
-Find the latest release on: https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases
+
+### For new peer setup
+
+**If you are upgrading from a previous version, please skip this section and go to next section below**
+
+```sh
+wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz
+# verify the SHA256 Hash Checksum is correct
+wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz.sha256
+shasum -c public-mainnet-peer-package-latest.tar.gz.sha256
+# If ok, you have downloaded an authentic file, otherwise the file is corrupted.
+tar -xvf public-mainnet-peer-package-latest.tar.gz
+# rename folder
+mv public-mainnet-peer-package-v0.6.2 public-mainnet-peer-package
+cd public-mainnet-peer-package
 ```
-$ cd /tmp
-$ wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.4.3-buster/public-mainnet-peer-package-v0.4.3.tar.gz
-$ tar -xvf public-mainnet-peer-package-v0.4.3.tar.gz
-$ cp -R public-mainnet-peer-package-v0.4.3/ /opt/public-mainnet-onboarding
-$ cd /opt/public-mainnet-onboarding
+
+## Upgrading
+
+The following instruction is assuming that existing node installation is located in `~/public-mainnet-peer-package`.  If it is different, please change the path accordingly.
+
+```sh
+# stop docker
+cd ~/public-mainnet-peer-package
+docker-compose down
+
+# download new files in tmp folder
+cd /tmp
+wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz
+tar -xvf public-mainnet-peer-package-latest.tar.gz
+# verify the SHA256 Hash Checksum is correct
+wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz.sha256
+shasum -c public-mainnet-peer-package-latest.tar.gz.sha256
+# If ok, you have downloaded an authentic file, otherwise the file is corrupted.
+rsync -av --progress \
+    --exclude 'data' \
+    --exclude 'resources/config-user.properties' \
+    --exclude 'resources/config-node.properties' \
+    --exclude 'resources/config-harvesting.properties' 
+    public-mainnet-peer-package-v0.6.2/ ~/public-mainnet-peer-package
+
+# resume docker
+cd ~/public-mainnet-peer-package
+docker-compose up -d
 ```
 
 ## Generate a keypair
+
+To generate a keypair for the peer node bootkey, run the following tool:
+
 ```
 $ tools/gen_key_pair_addr
 ```
@@ -173,11 +213,14 @@ $ sudo systemctl start sirius-chain-mainnet
 ```
 
 ## Reset Chain
-When the service won't start or you have a corrupted database, you can reset the chain by deleting the `data` folder and copy the data folder from the extracted .tar.gz file.
-```
-$ cd /opt/public-mainnet-onboarding
-$ rm -rf data
-$ cp -R /tmp/public-mainnet-peer-package-v0.4.3/data .
+
+When the service won't start or you have a corrupted database, you can reset the chain with the following:
+
+```sh
+$ docker-compose down
+$ rm -rf data/server.lock
+$ touch data/recovery.lock
+$ docker-compose up
 ```
 
 ## Helpdesk
