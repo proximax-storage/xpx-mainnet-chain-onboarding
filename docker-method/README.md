@@ -40,7 +40,6 @@ $ sudo systemctl enable docker.service
 $ sudo systemctl start docker.service
 $ sudo systemctl status docker.service
 ```
-
 ## Download and Extract the package
 
 ### For new peer setup
@@ -62,6 +61,18 @@ cd public-mainnet-peer-package
 ## Upgrading
 
 The following instruction is assuming that existing node installation is located in `~/public-mainnet-peer-package`.  If it is different, please change the path accordingly.
+
+Make sure you have `rsync` installed. if not, follow either of the commands below.
+
+```
+yum install rsync // using yum 
+```
+or
+```
+apt-get install rsync // using advance package tool (apt)
+```
+
+After installing `rsync`, run the following commands to pull the latest package.
 
 ```sh
 # stop docker
