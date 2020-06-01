@@ -104,7 +104,7 @@ docker-compose up -d
 To generate a keypair for the peer node bootkey, run the following tool:
 
 ```
-$ tools/gen_key_pair_addr
+$ tools/gen_keypair_addr
 ```
 
 ## Insert private key in [config-user.properties](resources/config-user.properties)
