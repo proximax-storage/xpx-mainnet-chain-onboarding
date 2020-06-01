@@ -1,118 +1,229 @@
 {
-    "entities": [{
-            "name": "Block",
-            "type": "33091",
-            "supportedVersions": [3]
-        },
-        {
-            "name": "Nemesis_Block",
-            "type": "32835",
-            "supportedVersions": [3]
-        },
-        {
-            "name": "Address_Metadata",
-            "type": "16701",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Mosaic_Metadata",
-            "type": "16957",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Namespace_Metadata",
-            "type": "17213",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "BlockChain_Upgrade",
-            "type": "16728",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Modify_Multisig_Account",
-            "type": "16725",
-            "supportedVersions": [3]
-        },
-        {
-            "name": "Hash_Lock",
-            "type": "16712",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Network_Config",
-            "type": "16729",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Register_Namespace",
-            "type": "16718",
-            "supportedVersions": [2]
-        },
-        {
-            "name": "Alias_Address",
-            "type": "16974",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Alias_Mosaic",
-            "type": "17230",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Transfer",
-            "type": "16724",
-            "supportedVersions": [3]
-        },
-        {
-            "name": "Secret_Proof",
-            "type": "16978",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Secret_Lock",
-            "type": "16722",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Address_Property",
-            "type": "16720",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Mosaic_Property",
-            "type": "16976",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Transaction_Type_Property",
-            "type": "17232",
-            "supportedVersions": [1]
-        },
-        {
-            "name": "Aggregate_Complete",
-            "type": "16705",
-            "supportedVersions": [2]
-        },
-        {
-            "name": "Aggregate_Bonded",
-            "type": "16961",
-            "supportedVersions": [2]
-        },
-        {
-            "name": "Mosaic_Definition",
-            "type": "16717",
-            "supportedVersions": [3]
-        },
-        {
-            "name": "Mosaic_Supply_Change",
-            "type": "16973",
-            "supportedVersions": [2]
-        },
-        {
-            "name": "Account_Link",
-            "type": "16716",
-            "supportedVersions": [2]
-        }
-    ]
+	"entities": [
+		{
+			"name": "Block",
+			"type": "33091",
+			"supportedVersions": [3]
+		},
+		{
+			"name": "Nemesis_Block",
+			"type": "32835",
+			"supportedVersions": [3]
+		},
+		{
+			"name": "Address_Metadata",
+			"type": "16701",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Mosaic_Metadata",
+			"type": "16957",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Namespace_Metadata",
+			"type": "17213",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "BlockChain_Upgrade",
+			"type": "16728",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Modify_Multisig_Account",
+			"type": "16725",
+			"supportedVersions": [3]
+		},
+		{
+			"name": "Hash_Lock",
+			"type": "16712",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Network_Config",
+			"type": "16729",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Register_Namespace",
+			"type": "16718",
+			"supportedVersions": [2]
+		},
+		{
+			"name": "Alias_Address",
+			"type": "16974",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Alias_Mosaic",
+			"type": "17230",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Transfer",
+			"type": "16724",
+			"supportedVersions": [3]
+		},
+		{
+			"name": "Secret_Proof",
+			"type": "16978",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Secret_Lock",
+			"type": "16722",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Modify_Contract",
+			"type": "16727",
+			"supportedVersions": []
+		},
+		{
+			"name": "Address_Property",
+			"type": "16720",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Mosaic_Property",
+			"type": "16976",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Transaction_Type_Property",
+			"type": "17232",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "Aggregate_Complete",
+			"type": "16705",
+			"supportedVersions": [2, 3]
+		},
+		{
+			"name": "Aggregate_Bonded",
+			"type": "16961",
+			"supportedVersions": [2, 3]
+		},
+		{
+			"name": "Mosaic_Definition",
+			"type": "16717",
+			"supportedVersions": [3]
+		},
+		{
+			"name": "Mosaic_Supply_Change",
+			"type": "16973",
+			"supportedVersions": [2]
+		},
+		{
+			"name": "Account_Link",
+			"type": "16716",
+			"supportedVersions": [2]
+		},
+		{
+			"name": "PrepareDrive",
+			"type": "16730",
+			"supportedVersions": [2]
+		},
+		{
+			"name": "JoinToDrive",
+			"type": "16986",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "DriveFileSystem",
+			"type": "17242",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "FilesDeposit",
+			"type": "17498",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "EndDrive",
+			"type": "17754",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "DriveFilesReward",
+			"type": "18010",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "StartDriveVerification",
+			"type": "18266",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "EndDriveVerification",
+			"type": "18522",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "exchangeOffer",
+			"type": "16733",
+			"supportedVersions": [2]
+		},
+		{
+			"name": "exchange",
+			"type": "16989",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "removeExchangeOffer",
+			"type": "17245",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "startFileDownload",
+			"type": "18778",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "endFileDownload",
+			"type": "19034",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "operationIdentify",
+			"type": "16735",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "startOperation",
+			"type": "16991",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "endOperation",
+			"type": "17247",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "deploy",
+			"type": "16736",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "startExecute",
+			"type": "16992",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "endExecute",
+			"type": "17248",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "uploadFile",
+			"type": "17504",
+			"supportedVersions": [1]
+		},
+		{
+			"name": "deactivate",
+			"type": "17760",
+			"supportedVersions": [1]
+		}
+	]
 }
