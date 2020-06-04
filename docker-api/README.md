@@ -161,6 +161,40 @@ There should be 3 containers running:
 - rest-gateway
 - mongo
 
+## Testing REST API
+
+Run the following to test your API node:
+
+```sh
+# check network info:
+curl http://localhost:3000/network
+# check node chain height:
+curl http://localhost:3000/chain/height
+# check api node info:
+curl http://localhost:3000/node/info
+```
+
+If the above is successful, you may make REST API calls to your node.  Run the following to get the public IP address of our node
+
+```sh
+curl ifconfig.me
+```
+
+Use the ip address that you get from `curl ifconfig.me` and enter into the web-browser as follow http://<node public ip address>:3000/chain/height.
+
+Example:
+In the linux shell terminal:  `$curl ifconfig.me` outputs `202.187.132.85`
+
+I will enter the following in my Chrome web browser:
+http://202.187.132.85:3000/chain/height
+and I should see something like this: `{"height":[1440873,0]}`
+
+If the above fails, please check your node's firewall setting and that port 3000 is accessible from the Internet.
+
+You can add your node to the web explorer `http://explorer.xpxsirius.io`.  Select `node`, `Add node`, key in `http://<ip_address>:3000`, and click `Add`.  Your node should appear in the Node section of the explorer.
+
+Refer to [here](https://bcdocs.xpxsirius.io/endpoints/) to get the full list of available endpoints of **ProximaX Sirius Chain**.
+
 ## Stop the API Node
 ```
 $ docker-compose down
