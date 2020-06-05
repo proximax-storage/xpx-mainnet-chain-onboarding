@@ -1,4 +1,4 @@
-# ProximaX Sirius MAINNET Onboarding
+# ProximaX Sirius MAINNET Onboarding for API Validator Node
 
 ## OS Requirements
 Ensure that your local network allows inbound/outbound traffic on these ports:
@@ -8,9 +8,9 @@ Ensure that your local network allows inbound/outbound traffic on these ports:
 - 7902/tcp
 
 A note on System Requirements:
-Theoretically, this dockerized Sirius Peer package can run on any OS running Docker version 19.03.3 and docker-compose version 1.24.0.
+Theoretically, this dockerized Sirius API package can run on any OS running Docker version 19.03.3 and docker-compose version 1.24.0.
 
-But if you really need a minimum benchmark, we have seen the Sirius Blockchain Peer to work with a minimum Hardware of 1 CPU core and 2GB RAM.
+But if you really need a minimum benchmark, we have seen the Sirius Blockchain Peer to work with a minimum Hardware of 2 CPU core and 4GB RAM.
 
 This README was prepared by testing the package on:
 - Debian 10 ++
@@ -47,20 +47,20 @@ $ sudo systemctl status docker.service
 **If you are upgrading from a previous version, please skip this section and go to next section below**
 
 ```sh
-wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz
+wget https://files.proximax.io/public-mainnet-api-package-latest.tar.gz
 # verify the SHA256 Hash Checksum is correct
-wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz.sha256
-shasum -c public-mainnet-peer-package-latest.tar.gz.sha256
+wget https://files.proximax.io/public-mainnet-api-package-latest.tar.gz.sha256
+shasum -c public-mainnet-api-package-latest.tar.gz.sha256
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
-tar -xvf public-mainnet-peer-package-latest.tar.gz
+tar -xvf public-mainnet-api-package-latest.tar.gz
 # rename folder
-mv public-mainnet-peer-package-v0.6.2 public-mainnet-peer-package
-cd public-mainnet-peer-package
+mv public-mainnet-api-package-v0.6.2 public-mainnet-api-package
+cd public-mainnet-api-package
 ```
 
 ## Upgrading
 
-The following instruction is assuming that existing node installation is located in `~/public-mainnet-peer-package`.  If it is different, please change the path accordingly.
+The following instruction is assuming that existing node installation is located in `~/public-mainnet-api-package`.  If it is different, please change the path accordingly.
 
 Make sure you have `rsync` installed. if not, follow either of the commands below.
 
@@ -76,51 +76,39 @@ After installing `rsync`, run the following commands to pull the latest package.
 
 ```sh
 # stop docker
-cd ~/public-mainnet-peer-package
+cd ~/public-mainnet-api-package
 docker-compose down
 
 # download new files in tmp folder
 cd /tmp
-wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz
-tar -xvf public-mainnet-peer-package-latest.tar.gz
+wget https://files.proximax.io/public-mainnet-api-package-latest.tar.gz
+tar -xvf public-mainnet-api-package-latest.tar.gz
 # verify the SHA256 Hash Checksum is correct
-wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz.sha256
-shasum -c public-mainnet-peer-package-latest.tar.gz.sha256
+wget https://files.proximax.io/public-mainnet-api-package-latest.tar.gz.sha256
+shasum -c public-mainnet-api-package-latest.tar.gz.sha256
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
 rsync -av --progress \
     --exclude 'data' \
+    --exclude 'mongodata' \
     --exclude 'resources/config-user.properties' \
     --exclude 'resources/config-node.properties' \
     --exclude 'resources/config-harvesting.properties' 
-    public-mainnet-peer-package-v0.6.2/ ~/public-mainnet-peer-package
+    public-mainnet-api-package-v0.6.2/ ~/public-mainnet-api-package
 
 # resume docker
-cd ~/public-mainnet-peer-package
+cd ~/public-mainnet-api-package
 docker-compose up -d
 ```
 
-## Generate a keypair
+## Assign keys to Node and Rest
 
-To generate a keypair for the peer node bootkey, run the following tool:
-
-```
-$ tools/gen_keypair_addr
-```
-
-## Insert private key in [config-user.properties](resources/config-user.properties)
-
-Replace `BOOTKEY_PRIVATE_KEY` with the generated private key. This is the account which holds the node reputation.
+To set up node bootkeys and client rest keys for the API node, run the following script:
 
 ```
-[account]
-
-bootKey = BOOTKEY_PRIVATE_KEY 
-
-[storage]
-
-dataDirectory = /data
-pluginsDirectory = 
+$ tools/auto_install_keys.sh
 ```
+
+The script will generate random keypairs and will insert the node bootkey and client rest key into the following files: `resources/config-user.properties` and `restuserconfig/rest.json`
 
 ## Assign a friendly name in  [config-node.properties](resources/config-node.properties) (OPTIONAL)
 
@@ -132,7 +120,7 @@ Add the domain name or public IP address to the `host` parameter, leave empty to
 host =
 friendlyName =
 version = 0
-roles = Peer
+roles = Api
 ```
 
 ## Delegated Validating
@@ -157,32 +145,81 @@ Please note that if your account does not have any XPX or previously linked to a
 
 **For more info, please read our online documentations [here](https://bcdocs.xpxsirius.io/docs/protocol/validating/)**
 
-## Start the Peer Node
+## Start the API Node
+
 ```
 $ docker-compose up -d
 ```
 
 ## Check if container is running
+
 ```
-$ docker container ls
+$ docker-compose ps
+```
+There should be 3 containers running:
+- catapult-api-node
+- rest-gateway
+- mongo
+
+## Testing REST API
+
+Run the following to test your API node:
+
+```sh
+# check network info:
+curl http://localhost:3000/network
+# check node chain height:
+curl http://localhost:3000/chain/height
+# check api node info:
+curl http://localhost:3000/node/info
 ```
 
-## Stop the Peer Node
+If the above is successful, you may make REST API calls to your node.  Run the following to get the public IP address of our node
+
+```sh
+curl ifconfig.me
+```
+
+Use the ip address that you get from `curl ifconfig.me` and enter into the web-browser as follow http://<node public ip address>:3000/chain/height.
+
+Example:
+In the linux shell terminal:  `$curl ifconfig.me` outputs `202.187.132.85`
+
+I will enter the following in my Chrome web browser:
+http://202.187.132.85:3000/chain/height
+and I should see something like this: `{"height":[1440873,0]}`
+
+If the above fails, please check your node's firewall setting and that port 3000 is accessible from the Internet.
+
+You can add your node to the web explorer `http://explorer.xpxsirius.io`.  Select `node`, `Add node`, key in `http://<ip_address>:3000`, and click `Add`.  Your node should appear in the Node section of the explorer.
+
+Refer to [here](https://bcdocs.xpxsirius.io/endpoints/) to get the full list of available endpoints of **ProximaX Sirius Chain**.
+
+## Stop the API Node
 ```
 $ docker-compose down
 ```
 
-## Restart the Peer Node
+## Restart the API Node
 ```
 $ docker-compose restart
 ```
 
 ## Check logs
 There are 2 ways to view the logs:
+
 1. docker logs
-```
-$ docker-compose logs --tail=100 -f
+
+```sh
+# check logs of API node
+$ docker-compose logs --tail=100 -f catapult-api-node
 # Press Ctrl-C to stop tailing the logs
+
+# check logs of Mongo
+$ docker-compose logs db
+
+# check logs of rest-gateway
+$ docker-compose logs rest-gateway
 ```
 
 2. log files in `logs` directory
@@ -229,8 +266,7 @@ When the service won't start or you have a corrupted database, you can reset the
 
 ```sh
 $ docker-compose down
-$ rm -rf data/server.lock
-$ touch data/recovery.lock
+$ ./reset.sh
 $ docker-compose up
 ```
 
