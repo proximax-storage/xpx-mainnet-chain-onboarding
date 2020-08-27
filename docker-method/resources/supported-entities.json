@@ -123,7 +123,7 @@
 		{
 			"name": "PrepareDrive",
 			"type": "16730",
-			"supportedVersions": [2]
+			"supportedVersions": [3]
 		},
 		{
 			"name": "JoinToDrive",
@@ -163,17 +163,17 @@
 		{
 			"name": "exchangeOffer",
 			"type": "16733",
-			"supportedVersions": [2]
+			"supportedVersions": [4]
 		},
 		{
 			"name": "exchange",
 			"type": "16989",
-			"supportedVersions": [1]
+			"supportedVersions": [2]
 		},
 		{
 			"name": "removeExchangeOffer",
 			"type": "17245",
-			"supportedVersions": [1]
+			"supportedVersions": [2]
 		},
 		{
 			"name": "startFileDownload",
