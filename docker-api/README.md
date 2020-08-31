@@ -14,7 +14,7 @@ But if you really need a minimum benchmark, we have seen the Sirius Blockchain P
 
 This README was prepared by testing the package on:
 - Debian 10 ++
-- Ubuntu 19.04 ++
+- Ubuntu 18.04 ++
 - CentOS 7 ++
 
 ## Pre-requisite
@@ -54,7 +54,7 @@ shasum -c public-mainnet-api-package-latest.tar.gz.sha256
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
 tar -xvf public-mainnet-api-package-latest.tar.gz
 # rename folder
-mv public-mainnet-api-package-v0.6.2 public-mainnet-api-package
+mv public-mainnet-api-package-v0.6.5 public-mainnet-api-package
 cd public-mainnet-api-package
 ```
 
@@ -93,7 +93,7 @@ rsync -av --progress \
     --exclude 'resources/config-user.properties' \
     --exclude 'resources/config-node.properties' \
     --exclude 'resources/config-harvesting.properties' 
-    public-mainnet-api-package-v0.6.2/ ~/public-mainnet-api-package
+    public-mainnet-api-package-v0.6.5/ ~/public-mainnet-api-package
 
 # resume docker
 cd ~/public-mainnet-api-package

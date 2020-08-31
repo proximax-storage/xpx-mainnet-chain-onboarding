@@ -14,7 +14,7 @@ But if you really need a minimum benchmark, we have seen the Sirius Blockchain P
 
 This README was prepared by testing the package on:
 - Debian 10 ++
-- Ubuntu 19.04 ++
+- Ubuntu 18.04 ++
 - CentOS 7 ++
 
 ## Pre-requisite
@@ -54,7 +54,7 @@ shasum -c public-mainnet-peer-package-latest.tar.gz.sha256
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
 tar -xvf public-mainnet-peer-package-latest.tar.gz
 # rename folder
-mv public-mainnet-peer-package-v0.6.2 public-mainnet-peer-package
+mv public-mainnet-peer-package-v0.6.5 public-mainnet-peer-package
 cd public-mainnet-peer-package
 ```
 
@@ -92,34 +92,11 @@ rsync -av --progress \
     --exclude 'resources/config-user.properties' \
     --exclude 'resources/config-node.properties' \
     --exclude 'resources/config-harvesting.properties' 
-    public-mainnet-peer-package-v0.6.2/ ~/public-mainnet-peer-package
+    public-mainnet-peer-package-v0.6.5/ ~/public-mainnet-peer-package
 
 # resume docker
 cd ~/public-mainnet-peer-package
 docker-compose up -d
-```
-
-## Generate a keypair
-
-To generate a keypair for the peer node bootkey, run the following tool:
-
-```
-$ tools/gen_keypair_addr
-```
-
-## Insert private key in [config-user.properties](resources/config-user.properties)
-
-Replace `BOOTKEY_PRIVATE_KEY` with the generated private key. This is the account which holds the node reputation.
-
-```
-[account]
-
-bootKey = BOOTKEY_PRIVATE_KEY 
-
-[storage]
-
-dataDirectory = /data
-pluginsDirectory = 
 ```
 
 ## Assign a friendly name in  [config-node.properties](resources/config-node.properties) (OPTIONAL)
@@ -156,6 +133,21 @@ Verify that your account has successfully activated delegated validation by chec
 Please note that if your account does not have any XPX or previously linked to another remote account, the transaction will be unsuccessful.
 
 **For more info, please read our online documentations [here](https://bcdocs.xpxsirius.io/docs/protocol/validating/)**
+
+## Insert private key in [config-user.properties](resources/config-user.properties)
+
+Replace `BOOTKEY_PRIVATE_KEY` with the generated private key from the previous step.
+
+```
+[account]
+
+bootKey = BOOTKEY_PRIVATE_KEY 
+
+[storage]
+
+dataDirectory = /data
+pluginsDirectory = 
+```
 
 ## Start the Peer Node
 ```
