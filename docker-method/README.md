@@ -82,11 +82,11 @@ docker-compose down
 # download new files in tmp folder
 cd /tmp
 wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz
-tar -xvf public-mainnet-peer-package-latest.tar.gz
 # verify the SHA256 Hash Checksum is correct
 wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz.sha256
 shasum -c public-mainnet-peer-package-latest.tar.gz.sha256
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
+tar -xvf public-mainnet-peer-package-latest.tar.gz
 rsync -av --progress \
     --exclude 'data' \
     --exclude 'resources/config-user.properties' \
