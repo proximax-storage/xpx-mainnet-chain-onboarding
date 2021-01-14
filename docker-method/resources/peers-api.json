@@ -45,39 +45,6 @@
             }
         },
         {
-            "publicKey": "0B92B3F6AFF833B6B702AFFB42C17585284E3BE3FCC6A1FA12D7C04CD0D44C39",
-            "endpoint": {
-                "host": "westerlund.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "teir1a-mainnet-chain-api1",
-                "roles": "Api"
-            }
-        },
-        {
-            "publicKey": "5FFA15A9416A06EB353C274B801148CF7E27C2FC0A05806D9DC9C26EE61B3D25",
-            "endpoint": {
-                "host": "canismajor.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "teir1a-mainnet-chain-api2",
-                "roles": "Api"
-            }
-        },
-        {
-            "publicKey": "5C563D977763F27DF9EB4885A5044B9785CFF5B98674AC84CA939B43938F5F2D",
-            "endpoint": {
-                "host": "coronaborealis.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "teir1a-mainnet-chain-api3",
-                "roles": "Api"
-            }
-        },
-        {
             "publicKey": "F0928275E7D8A06AF0E0438CE864BB80F1049FA4854D79E969EAD898E9F26836",
             "endpoint": {
                 "host": "delphinus.xpxsirius.io",
@@ -85,17 +52,6 @@
             },
             "metadata": {
                 "name": "tier1B-mainnet-chain-api1",
-                "roles": "Api"
-            }
-        },
-        {
-            "publicKey": "965EDD8F3C048FE92482FD1405E23C19574E2F97171F2FADA8EA8E3DEA520194",
-            "endpoint": {
-                "host": "eridanus.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "tier1B-mainnet-chain-api2",
                 "roles": "Api"
             }
         },

@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   mainnet-peer:
-    image: proximax/proximax-sirius-chain:v0.6.5-buster
+    image: proximax/proximax-sirius-chain:v0.6.7-buster
     ports:
       - 7902:7902
       - 7900:7900
