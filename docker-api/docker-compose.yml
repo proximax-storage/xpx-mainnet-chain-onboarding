@@ -1,13 +1,13 @@
 version: "3.6"
 services:
   db:
-    image: mongo:4.2-bionic
+    image: mongo:4.4-bionic
     command: bash -c "mongod --dbpath=/dbdata --bind_ip=db"
     volumes:
     - ./mongodata:/dbdata:rw
 
   init-db:
-    image: mongo:4.2-bionic
+    image: mongo:4.4-bionic
     command:  bash -c "/bin/bash /userconfig/mongors.sh"
     volumes:
     - ./mongodata:/dbdata:rw
@@ -17,7 +17,7 @@ services:
 
   catapult-api-node:
     # Downloads Catapult Server from specified Docker repo
-    image: proximax/proximax-sirius-chain:v0.6.5-buster
+    image: proximax/proximax-sirius-chain:v0.6.7-buster
     ports:
       - 7902:7902
       - 7900:7900
@@ -32,7 +32,7 @@ services:
     - db
 
   rest-gateway:
-    image: proximax/proximax-sirius-rest:v0.6.4
+    image: proximax/proximax-sirius-rest:v0.6.6
     ports:
     - "3000:3000"
     volumes:
