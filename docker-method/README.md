@@ -53,12 +53,17 @@ wget https://files.proximax.io/public-mainnet-peer-package-latest.tar.gz.sha256
 shasum -c public-mainnet-peer-package-latest.tar.gz.sha256
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
 tar -xvf public-mainnet-peer-package-latest.tar.gz
-# rename folder
-mv public-mainnet-peer-package-v0.6.5 public-mainnet-peer-package
 cd public-mainnet-peer-package
 ```
 
 ## Upgrading
+
+---
+
+**v0.6.7 UPGRADE NOTES**
+>Please note that the following upgrade will replace your `config-node.properties`.  If you have previously assign a `friendlyName`, please see `Assign a friendly name in config-node.properties (OPTIONAL)`
+
+---
 
 The following instruction is assuming that existing node installation is located in `~/public-mainnet-peer-package`.  If it is different, please change the path accordingly.
 
@@ -90,10 +95,8 @@ shasum -c public-mainnet-peer-package-latest.tar.gz.sha256
 rsync -av --progress \
     --exclude 'data' \
     --exclude 'resources/config-user.properties' \
-    --exclude 'resources/config-node.properties' \
     --exclude 'resources/config-harvesting.properties' 
-    public-mainnet-peer-package-v0.6.5/ ~/public-mainnet-peer-package
-
+    public-mainnet-peer-package/ ~/public-mainnet-peer-package
 # resume docker
 cd ~/public-mainnet-peer-package
 docker-compose up -d
