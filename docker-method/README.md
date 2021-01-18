@@ -95,7 +95,7 @@ shasum -c public-mainnet-peer-package-latest.tar.gz.sha256
 rsync -av --progress \
     --exclude 'data' \
     --exclude 'resources/config-user.properties' \
-    --exclude 'resources/config-harvesting.properties' 
+    --exclude 'resources/config-harvesting.properties' \
     public-mainnet-peer-package/ ~/public-mainnet-peer-package
 # resume docker
 cd ~/public-mainnet-peer-package
