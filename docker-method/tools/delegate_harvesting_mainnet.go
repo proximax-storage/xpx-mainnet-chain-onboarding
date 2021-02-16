@@ -12,24 +12,40 @@ import (
 	"github.com/proximax-storage/go-xpx-chain-sdk/sdk"
 )
 
-const (
-    // Sirius-chain-api-rest server.
-    baseUrl = "http://canismajor.xpxsirius.io:3000"
-)
+var apiNodes = []string{
+	"https://arcturus.xpxsirius.io",
+	"https://aldebaran.xpxsirius.io",
+	"https://betelgeuse.xpxsirius.io",
+	"https://bigcalvin.xpxsirius.io",
+	"https://delphinus.xpxsirius.io",
+	"https://lyrasithara.xpxsirius.io",
+}
+
+var networkType sdk.NetworkType
+var config *sdk.Config
+var ctx context.Context
+var client *sdk.Client
+
+func init() {
+	var err error
+	ctx = context.Background()
+	baseUrl := selectApi()
+	config, err = sdk.NewConfig(ctx, []string{baseUrl})
+	if err != nil {
+		panic(err)
+	}
+	client = sdk.NewClient(nil,config)
+
+	networkType = config.NetworkType
+}
 
 func main() {
 	
 	fmt.Print("Enter your account private key: ")
 	accountPrivateKey := promptPrivateKey()
 
-	conf, err := sdk.NewConfig(context.Background(), []string{baseUrl})
-    if err != nil {
-        fmt.Printf("NewConfig returned error: %s", err)
-        return
-    }
-
     // Use the default http client
-    client := sdk.NewClient(nil, conf)
+    client := sdk.NewClient(nil, config)
 
 	account, err := client.NewAccountFromPrivateKey(string(accountPrivateKey))
     if err != nil {
@@ -88,6 +104,18 @@ func main() {
 	fmt.Println("Please add the delegated remote account private key in config-harvesting.properties")
 	fmt.Printf("Private Key:\t%x\n\n",remoteAccountKeyPair.PrivateKey.Raw)
 	
+}
+
+func selectApi() string {
+	prompt := promptui.Select{
+		Label: "Select API Node",
+		Items: apiNodes,
+	}
+	_, result, err := prompt.Run()
+	if err != nil {
+		fmt.Printf("Select failed %\v\n", err)
+	}
+	return result
 }
 
 func yesNo() bool {
