@@ -1,22 +1,13 @@
 # Onboarding the Community into ProximaX Sirius MAINNET
 
-This readme contains the official ProximaX instructions on how to use the community distribution for a Sirius Blockchain Peer node.  The deployable Peer node automatically hooks-up to ProximaX MAINNET, provided you setup the validator key (harvestKey).
+This readme contains the official ProximaX instructions on how to use the community distribution for a Sirius Chain Node for Mainnet.
 
-
-
-## Methods of Onboarding:
+## Types of Nodes:
 ---
 
-There are three main ways to use the distribution:
-1. - [Vagrant Box](https://github.com/proximax-storage/community-onboarding/tree/master/vagrant-method)
-2. - [Debian/Ubuntu .deb package](https://github.com/proximax-storage/community-onboarding/tree/master/debian-package-method)
-3. - [Docker Image](https://github.com/proximax-storage/community-onboarding/tree/master/docker-method)
+1. [Peer Node](https://github.com/proximax-storage/community-onboarding/tree/master/docker-method)
 
-
----
-
-Method Diagram: 
-![alt text](https://github.com/proximax-storage/community-onboarding/blob/master/images/onb-methods1xx.jpg?raw=true "dont worry about the docker image... it's coming...")
+2. [API Node](https://github.com/proximax-storage/community-onboarding/tree/master/docker-api)
 
 
 ---

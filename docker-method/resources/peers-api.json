@@ -7,7 +7,7 @@
                 "port": 7900
             },
             "metadata": {
-                "name": "mainnet-chain-api1",
+                "name": "arcturus",
                 "roles": "Api"
             }
         },
@@ -18,7 +18,7 @@
                 "port": 7900
             },
             "metadata": {
-                "name": "mainnet-chain-api2",
+                "name": "aldebaran",
                 "roles": "Api"
             }
         },
@@ -29,7 +29,7 @@
                 "port": 7900
             },
             "metadata": {
-                "name": "mainnet-chain-api3",
+                "name": "betelgeuse",
                 "roles": "Api"
             }
         },
@@ -40,7 +40,7 @@
                 "port": 7900
             },
             "metadata": {
-                "name": "mainnet-chain-api4",
+                "name": "bigcalvin",
                 "roles": "Api"
             }
         },
@@ -51,7 +51,7 @@
                 "port": 7900
             },
             "metadata": {
-                "name": "tier1B-mainnet-chain-api1",
+                "name": "delphinus",
                 "roles": "Api"
             }
         },
@@ -62,7 +62,7 @@
                 "port": 7900
             },
             "metadata": {
-                "name": "tier1B-mainnet-chain-api3",
+                "name": "lyrasithara",
                 "roles": "Api"
             }
         }
