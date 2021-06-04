@@ -17,7 +17,7 @@ services:
 
   catapult-api-node:
     # Downloads Catapult Server from specified Docker repo
-    image: proximax/proximax-sirius-chain:v0.6.7-buster
+    image: proximax/proximax-sirius-chain:v0.6.9-buster
     ports:
       - 7902:7902
       - 7900:7900
