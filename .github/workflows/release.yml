@@ -20,7 +20,7 @@ jobs:
     
     - name: compile api package
       run: |
-         mv docker-api public-mainnet-api-package
+        mv docker-api public-mainnet-api-package
         tar -zcvf public-mainnet-api-package-${{github.ref}}.tar.gz public-mainnet-api-package
         sha256sum public-mainnet-api-package-${{github.ref}}.tar.gz > public-mainnet-api-package-${{github.ref}}.tar.gz.sha256
     
