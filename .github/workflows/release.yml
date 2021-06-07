@@ -12,17 +12,20 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - uses: little-core-labs/get-git-tag@v3.0.1
+      id: tagName
+
     - name: compile peer package
       run: |
         mv docker-method public-mainnet-peer-package
-        tar -zcvf public-mainnet-peer-package-${{github.ref}}.tar.gz public-mainnet-peer-package
-        sha256sum public-mainnet-peer-package-${{github.ref}}.tar.gz > public-mainnet-peer-package-${{github.ref}}.tar.gz.sha256
+        tar -zcvf public-mainnet-peer-package-${{steps.tagName.outputs.tag}}.tar.gz public-mainnet-peer-package
+        sha256sum public-mainnet-peer-package-${{steps.tagName.outputs.tag}}.tar.gz > public-mainnet-peer-package-${{steps.tagName.outputs.tag}}.tar.gz.sha256
     
     - name: compile api package
       run: |
         mv docker-api public-mainnet-api-package
-        tar -zcvf public-mainnet-api-package-${{github.ref}}.tar.gz public-mainnet-api-package
-        sha256sum public-mainnet-api-package-${{github.ref}}.tar.gz > public-mainnet-api-package-${{github.ref}}.tar.gz.sha256
+        tar -zcvf public-mainnet-api-package-${{steps.tagName.outputs.tag}}.tar.gz public-mainnet-api-package
+        sha256sum public-mainnet-api-package-${{steps.tagName.outputs.tag}}.tar.gz > public-mainnet-api-package-${{steps.tagName.outputs.tag}}.tar.gz.sha256
     
     - uses: ncipollo/release-action@v1
       with:
