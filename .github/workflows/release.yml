@@ -1,0 +1,31 @@
+name: Releases
+
+on: 
+  push:
+    tags:
+    - 'release-v*'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: compile peer package
+      run: |
+        mv docker-method public-mainnet-peer-package
+        tar -zcvf public-mainnet-peer-package-${{github.ref}}.tar.gz public-mainnet-peer-package
+        sha256sum public-mainnet-peer-package-${{github.ref}}.tar.gz > public-mainnet-peer-package-${{github.ref}}.tar.gz.sha256
+    
+    - name: compile api package
+      run: |
+         mv docker-api public-mainnet-api-package
+        tar -zcvf public-mainnet-api-package-${{github.ref}}.tar.gz public-mainnet-api-package
+        sha256sum public-mainnet-api-package-${{github.ref}}.tar.gz > public-mainnet-api-package-${{github.ref}}.tar.gz.sha256
+    
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "public-mainnet-*-package-*.tar.gz*"
+        token: ${{ secrets.GITHUB_TOKEN }}
+
