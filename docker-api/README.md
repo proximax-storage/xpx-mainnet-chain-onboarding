@@ -10,7 +10,7 @@ Ensure that your local network allows inbound/outbound traffic on these ports:
 A note on System Requirements:
 Theoretically, this dockerized Sirius API package can run on any OS running Docker version 19.03.3 and docker-compose version 1.24.0.
 
-But if you really need a minimum benchmark, we have seen the Sirius Blockchain Peer to work with a minimum Hardware of 2 CPU core and 4GB RAM.
+But if you really need a minimum benchmark, we have seen the Sirius Blockchain API to work with a minimum Hardware of 2 CPU core and 4GB RAM.
 
 This README was prepared by testing the package on:
 - Debian 10 ++
@@ -40,6 +40,7 @@ $ sudo systemctl enable docker.service
 $ sudo systemctl start docker.service
 $ sudo systemctl status docker.service
 ```
+
 ## Download and Extract the package
 
 ### For new API setup
@@ -47,61 +48,13 @@ $ sudo systemctl status docker.service
 **If you are upgrading from a previous version, please skip this section and go to next section below**
 
 ```sh
-wget https://files.proximax.io/public-mainnet-api-package-latest.tar.gz
+wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.6.9/public-mainnet-api-package-release-v0.6.9.tar.gz
+
 # verify the SHA256 Hash Checksum is correct
-wget https://files.proximax.io/public-mainnet-api-package-latest.tar.gz.sha256
-shasum -c public-mainnet-api-package-latest.tar.gz.sha256
+wget wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.6.9/public-mainnet-api-package-release-v0.6.9.tar.gz.sha256
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
-tar -xvf public-mainnet-api-package-latest.tar.gz
+tar -xvf public-mainnet-api-package-release-v0.6.9.tar.gz
 cd public-mainnet-api-package
-```
-
-## Upgrading
-
----
-
-**v0.6.7 UPGRADE NOTES**
->Please note that the following upgrade will replace your `config-node.properties`.  If you have previously assign a `friendlyName`, please see `Assign a friendly name in config-node.properties (OPTIONAL)`
-
----
-
-The following instruction is assuming that existing node installation is located in `~/public-mainnet-api-package`.  If it is different, please change the path accordingly.
-
-Make sure you have `rsync` installed. if not, follow either of the commands below.
-
-```
-yum install rsync // using yum 
-```
-or
-```
-apt-get install rsync // using advance package tool (apt)
-```
-
-After installing `rsync`, run the following commands to pull the latest package.
-
-```sh
-# stop docker
-cd ~/public-mainnet-api-package
-docker-compose down
-
-# download new files in tmp folder
-cd /tmp
-wget https://files.proximax.io/public-mainnet-api-package-latest.tar.gz
-tar -xvf public-mainnet-api-package-latest.tar.gz
-# verify the SHA256 Hash Checksum is correct
-wget https://files.proximax.io/public-mainnet-api-package-latest.tar.gz.sha256
-shasum -c public-mainnet-api-package-latest.tar.gz.sha256
-# If ok, you have downloaded an authentic file, otherwise the file is corrupted.
-rsync -av --progress \
-    --exclude 'data' \
-    --exclude 'mongodata' \
-    --exclude 'resources/config-user.properties' \
-    --exclude 'resources/config-harvesting.properties' 
-    public-mainnet-api-package/ ~/public-mainnet-api-package
-
-# resume docker
-cd ~/public-mainnet-api-package
-docker-compose up -d
 ```
 
 ## Assign keys to Node and Rest
@@ -272,6 +225,16 @@ When the service won't start or you have a corrupted database, you can reset the
 $ docker-compose down
 $ ./reset.sh
 $ docker-compose up
+```
+
+## Upgrading
+
+Replace the docker image with the latest docker image `proximax/proximax-sirius-chain:v0.6.7-buster` in `docker-compose.yml.
+
+```sh
+docker-compose down
+sed -i 's/v0.6.7-buster/v0.6.9-buster/g' docker-compose.yml
+docker-compose up -d
 ```
 
 ## Helpdesk
