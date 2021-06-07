@@ -92,6 +92,11 @@ Please note that if your account does not have any XPX or previously linked to a
 
 **For more info, please read our online documentations [here](https://bcdocs.xpxsirius.io/docs/protocol/validating/)**
 
+## Generate a keypair for bootkey
+```
+tools/generate_key_pair
+```
+
 ## Insert private key in [config-user.properties](resources/config-user.properties)
 
 Replace `BOOTKEY_PRIVATE_KEY` with the generated private key from the previous step.
