@@ -5,9 +5,9 @@ This readme contains the official ProximaX instructions on how to use the commun
 ## Types of Nodes:
 ---
 
-1. [Peer Node](https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/tree/master/docker-method)
+1. [Peer Node](https://github.com/proximax-storage/community-onboarding/tree/master/docker-method)
 
-2. [API Node](https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/tree/master/docker-api)
+2. [API Node](https://github.com/proximax-storage/community-onboarding/tree/master/docker-api)
 
 
 ---
