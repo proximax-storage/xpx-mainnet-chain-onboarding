@@ -1,70 +1,38 @@
 {
-    "_info": "this file contains a list of all trusted peers and can be shared",
-    "knownPeers": [{
-            "publicKey": "FE24C32D19AF89A6FF9981F87BD7137793D49966B20DEA68E03B5F3ACCF29135",
-            "endpoint": {
-                "host": "genesiseridani.brimstone.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "eridani",
-                "roles": "Peer"
-            }
-        },
-        {
-            "publicKey": "BD09E534071690388839CD439AD0E577FEB915540932C8F8C710C7E586B2AFB6",
-            "endpoint": {
-                "host": "genesisomicron.brimstone.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "omicron",
-                "roles": "Peer"
-            }
-        },
-        {
-            "publicKey": "2CC148D0CB580FFE6A0562207120EFCA1D0AE6EC8851520067B3D50979230E32",
-            "endpoint": {
-                "host": "genesispalioxis.brimstone.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "palioxis",
-                "roles": "Peer"
-            }
-        },
-        {
-            "publicKey": "D4EBE7785E4BFBCA53D33C27D7953216EF7E2B410731BF3B0A099C77D039BC4D",
-            "endpoint": {
-                "host": "bigcalvin.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "bigcalvin",
-                "roles": "Peer"
-            }
-        },
-        {
-            "publicKey": "F0928275E7D8A06AF0E0438CE864BB80F1049FA4854D79E969EAD898E9F26836",
-            "endpoint": {
-                "host": "delphinus.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "delphinus",
-                "roles": "Peer"
-            }
-        },
-        {
-            "publicKey": "4C034D9CB4886D95C12DAD4157F74C502C92F4297668E4AB3140823CA8E9A8F1",
-            "endpoint": {
-                "host": "lyrasithara.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "lyrasithara",
-                "roles": "Peer"
-            }
-        }
-    ]
+  "_info": "this file contains a list of all trusted peers and can be shared",
+  "knownPeers": [
+    {
+      "publicKey": "003D40265A0DB375B4A1BE70FE6216E9E0EBC3CE446511C1D309E5037A6883B3",
+      "endpoint": {
+        "host": "genesiseridani.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "eridani",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "FCCC0576C4F0776B96C43A211EFE23597E1DD752B1EA5CB490D079C50DD95A9A",
+      "endpoint": {
+        "host": "genesisomicron.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "omicron",
+        "roles": "Peer"
+      }
+    },
+    {
+      "publicKey": "6EFAB69494DAAD8BAC5A48E3F6B6B71F29A5DF2AD207E2B1C41FA399B06BB3B8",
+      "endpoint": {
+        "host": "genesispalioxis.brimstone.xpxsirius.io",
+        "port": 7900
+      },
+      "metadata": {
+        "name": "palioxis",
+        "roles": "Peer"
+      }
+    }
+  ]
 }
