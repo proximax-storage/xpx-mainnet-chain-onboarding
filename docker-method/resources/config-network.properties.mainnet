@@ -21,8 +21,6 @@ maxMosaicAtomicUnits = 9'000'000'000'000'001
 
 totalChainImportance = 9'000'000'000'000'000
 minHarvesterBalance = 100'000'000'000
-enableDeadlineValidation = true
-
 harvestBeneficiaryPercentage = 10
 
 blockPruneInterval = 360
@@ -58,7 +56,7 @@ minPercentageOfRemoval = 66
 
 [plugin:catapult.plugins.exchange]
 
-enabled = false
+enabled = true
 
 maxOfferDuration = 57600
 longOfferKey = 1A9E8017BF75AB60525E76D84F0FA50EEB58A1BCBA5314E97EF667B4BA56F8F7
@@ -89,13 +87,12 @@ maxMosaicDivisibility = 6
 mosaicRentalFeeSinkPublicKey = 16D2DC35B9A4D37E2E8056E9F054A44CA166384536C257DCD3D8641A641926DC
 mosaicRentalFee = 10'000'000'000
 
-levyEnabled = false
-
 [plugin:catapult.plugins.multisig]
 
 maxMultisigDepth = 3
 maxCosignersPerAccount = 10
 maxCosignedAccountsPerAccount = 1048576
+
 newCosignersMustApprove = true
 
 [plugin:catapult.plugins.namespace]
@@ -105,7 +102,7 @@ maxNameSize = 64
 # *approximate* days based on blockGenerationTargetTime
 maxNamespaceDuration = 365d
 namespaceGracePeriodDuration = 30d
-reservedRootNamespaceNames = xem, nem, user, account, org, com, biz, net, edu, mil, gov, info, prx, xpx, xarcade, xar, proximax, prc, storage, so, sm, sc, rw
+reservedRootNamespaceNames = xem, nem, user, account, org, com, biz, net, edu, mil, gov, info, xpx, xarcade, xar, proximax, prc, storage, so, sm, sc, rw
 
 namespaceRentalFeeSinkPublicKey = 5386409C182D2A11A879B4AED683F2B540A612C7DE7C99DADEFD01562F0CB23E
 rootNamespaceRentalFeePerBlock = 4'576
@@ -128,25 +125,20 @@ minUpgradePeriod = 360
 
 [plugin:catapult.plugins.operation]
 
-enabled = false
+enabled = true
 maxOperationDuration = 2d
 
 [plugin:catapult.plugins.service]
 
-enabled = false
-
+enabled = true
 maxFilesOnDrive = 32768
 verificationFee = 10
 verificationDuration = 240
 downloadDuration = 40320
-
-downloadCacheEnabled = false
+downloadCacheEnabled = true
 
 [plugin:catapult.plugins.supercontract]
 
-enabled = false
+enabled = true
 maxSuperContractsOnDrive = 10
 
-[plugin:catapult.plugins.metadata_v2]
-enabled = false
-maxValueSize = 1024

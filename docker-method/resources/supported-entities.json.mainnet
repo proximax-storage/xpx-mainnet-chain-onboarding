@@ -8,13 +8,6 @@
             ]
         },
         {
-            "name": "Account_Metadata_v2",
-            "type": "16703",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
             "name": "Address_Metadata",
             "type": "16701",
             "supportedVersions": []
@@ -144,29 +137,8 @@
             "supportedVersions": []
         },
         {
-            "name": "Mosaic_Metadata_v2",
-            "type": "16959",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "Mosaic_Modify_Levy",
-            "type": "17229",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
             "name": "Mosaic_Property",
             "type": "16976",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "Mosaic_Remove_Levy",
-            "type": "17485",
             "supportedVersions": [
                 1
             ]
@@ -182,13 +154,6 @@
             "name": "Namespace_Metadata",
             "type": "17213",
             "supportedVersions": []
-        },
-        {
-            "name": "Namespace_Metadata_v2",
-            "type": "17215",
-            "supportedVersions": [
-                1
-            ]
         },
         {
             "name": "Nemesis_Block",
