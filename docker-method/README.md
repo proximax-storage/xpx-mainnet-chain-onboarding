@@ -21,24 +21,24 @@ This README was prepared by testing the package on:
 This onboarding method requires `docker` and `docker-compose`.  
 
 Run the following command to install `docker`:
-```
-$ curl -fsSL https://get.docker.com -o get-docker.sh
-$ sh get-docker.sh
+```sh
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
 ```
 
 As per docker post-installation note, we recommend using Docker as a non-root user.  Therefore, you should now consider adding your user to the "docker" group with something like:
-```
-$ sudo usermod -aG docker $your_user
+```sh
+sudo usermod -aG docker $your_user
 ```
 Remember that you will have to log out and back in for this to take effect!"
 
 Installation instructions for docker-compose can be found [here](https://docs.docker.com/compose/install/). 
 
 Enable and start Docker:
-```
-$ sudo systemctl enable docker.service
-$ sudo systemctl start docker.service
-$ sudo systemctl status docker.service
+```sh
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+sudo systemctl status docker.service
 ```
 
 ## Download and Extract the package
@@ -48,12 +48,12 @@ $ sudo systemctl status docker.service
 **If you are upgrading from a previous version, please skip this section and go to next section below**
 
 ```sh
-wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.6.9/public-mainnet-peer-package-release-v0.6.9.tar.gz
+wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.7.0/public-mainnet-peer-package-release-v0.7.0.tar.gz
 # verify the SHA256 Hash Checksum is correct
-wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.6.9/public-mainnet-peer-package-release-v0.6.9.tar.gz.sha256
-shasum -c public-mainnet-peer-package-release-v0.6.9.tar.gz.sha256
+wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.7.0/public-mainnet-peer-package-release-v0.7.0.tar.gz.sha256
+shasum -c public-mainnet-peer-package-release-v0.7.0.tar.gz.sha256
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
-tar -xvf public-mainnet-peer-package-release-v0.6.9.tar.gz
+tar -xvf public-mainnet-peer-package-release-v0.7.0.tar.gz
 cd public-mainnet-peer-package
 ```
 
@@ -72,8 +72,9 @@ roles = Peer
 
 ## Delegated Validating
 You may activate your account for delegated validating by running the following tool:
-```
-$ tools/delegate_harvesting_mainnet
+```sh
+chmod +x tools/delegate_harvesting_mainnet
+tools/delegate_harvesting_mainnet
 ```
 
 After running the above tool, add the delegated remote account private key in the [config-harvesting.properties](resources/config-harvesting.properties):
@@ -93,7 +94,8 @@ Please note that if your account does not have any XPX or previously linked to a
 **For more info, please read our online documentations [here](https://bcdocs.xpxsirius.io/docs/protocol/validating/)**
 
 ## Generate a keypair for bootkey
-```
+```sh
+chmod +x tools/generate_key_pair
 tools/generate_key_pair
 ```
 
@@ -113,30 +115,31 @@ pluginsDirectory =
 ```
 
 ## Start the Peer Node
-```
-$ docker-compose up -d
+```sh
+chmod +x entrypoint.sh
+docker-compose up -d
 ```
 
 ## Check if container is running
-```
-$ docker container ls
+```sh
+docker container ls
 ```
 
 ## Stop the Peer Node
-```
-$ docker-compose down
+```sh
+docker-compose down
 ```
 
 ## Restart the Peer Node
-```
-$ docker-compose restart
+```sh
+docker-compose restart
 ```
 
 ## Check logs
 There are 2 ways to view the logs:
 1. docker logs
-```
-$ docker-compose logs --tail=100 -f
+```sh
+docker-compose logs --tail=100 -f
 # Press Ctrl-C to stop tailing the logs
 ```
 
@@ -144,7 +147,7 @@ $ docker-compose logs --tail=100 -f
 
 ## Create service and auto-start container on reboot
 ```
-$ sudo nano /etc/systemd/system/sirius-chain-mainnet.service
+sudo nano /etc/systemd/system/sirius-chain-mainnet.service
 ```
 
 Put this text in this file and replace `PATH_OF_YML_FILE`:
@@ -168,14 +171,14 @@ TimeoutStartSec=0
 WantedBy=multi-user.target
 ```
 
-```
-$ sudo systemctl daemon-reload
-$ sudo systemctl enable sirius-chain-mainnet
+```sh
+sudo systemctl daemon-reload
+sudo systemctl enable sirius-chain-mainnet
 ```
 
 If the Docker container isn't running yet, you can start the container using this command:
-```
-$ sudo systemctl start sirius-chain-mainnet
+```sh
+sudo systemctl start sirius-chain-mainnet
 ```
 
 ## Reset Chain
@@ -183,19 +186,38 @@ $ sudo systemctl start sirius-chain-mainnet
 When the service won't start or you have a corrupted database, you can reset the chain with the following:
 
 ```sh
-$ docker-compose down
-$ rm -rf data/server.lock
-$ touch data/recovery.lock
-$ docker-compose up
+docker-compose down
+rm -rf data/server.lock
+touch data/recovery.lock
+docker-compose up
 ```
 
 ## Upgrading
 
-Replace the docker image with the latest docker image `proximax/proximax-sirius-chain:v0.6.7-buster` in `docker-compose.yml.
+### Software Version Upgrade
+Replace the docker image with the latest docker image `proximax/proximax-sirius-chain:v0.7.0-bullseye` in `docker-compose.yml.
 
 ```sh
 docker-compose down
-sed -i 's/v0.6.7-buster/v0.6.9-buster/g' docker-compose.yml
+sed -i 's/v0.6.9-buster/v0.7.0-buster/g' docker-compose.yml
+docker-compose up -d
+```
+
+### Config Upgrade
+Update the configuration file using `jq`.  
+
+```sh
+#In Ubuntu, you can install `jq` as follow:
+sudo apt install jq
+
+docker-compose down
+
+# update  config-network.properties
+curl arcturus.xpxsirius.io:3000/config/3494590000000 | jq -r '.networkConfig.networkConfig' > resources/config-network.properties
+
+# update  supported-entities.json
+curl https://arcturus.xpxsirius.io/config/4919400  | jq -r '.networkConfig.supportedEntityVersions' > resources/supported-entities.json
+
 docker-compose up -d
 ```
 
