@@ -71,58 +71,11 @@
             ]
         },
         {
-            "name": "DriveFileSystem",
-            "type": "17242",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "DriveFilesReward",
-            "type": "18010",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "EndDrive",
-            "type": "17754",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "EndDriveVerification",
-            "type": "18522",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "FilesDeposit",
-            "type": "17498",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
             "name": "Hash_Lock",
             "type": "16712",
             "supportedVersions": [
                 1
             ]
-        },
-        {
-            "name": "JoinToDrive",
-            "type": "16986",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "Modify_Contract",
-            "type": "16727",
-            "supportedVersions": []
         },
         {
             "name": "Modify_Multisig_Account",
@@ -205,13 +158,6 @@
             ]
         },
         {
-            "name": "PrepareDrive",
-            "type": "16730",
-            "supportedVersions": [
-                3
-            ]
-        },
-        {
             "name": "Register_Namespace",
             "type": "16718",
             "supportedVersions": [
@@ -233,13 +179,6 @@
             ]
         },
         {
-            "name": "StartDriveVerification",
-            "type": "18266",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
             "name": "Transaction_Type_Property",
             "type": "17232",
             "supportedVersions": [
@@ -251,41 +190,6 @@
             "type": "16724",
             "supportedVersions": [
                 3
-            ]
-        },
-        {
-            "name": "deactivate",
-            "type": "17760",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "deploy",
-            "type": "16736",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "endExecute",
-            "type": "17248",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "endFileDownload",
-            "type": "19034",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "endOperation",
-            "type": "17247",
-            "supportedVersions": [
-                1
             ]
         },
         {
@@ -303,45 +207,10 @@
             ]
         },
         {
-            "name": "operationIdentify",
-            "type": "16735",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
             "name": "removeExchangeOffer",
             "type": "17245",
             "supportedVersions": [
                 2
-            ]
-        },
-        {
-            "name": "startExecute",
-            "type": "16992",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "startFileDownload",
-            "type": "18778",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "startOperation",
-            "type": "16991",
-            "supportedVersions": [
-                1
-            ]
-        },
-        {
-            "name": "uploadFile",
-            "type": "17504",
-            "supportedVersions": [
-                1
             ]
         }
     ]
