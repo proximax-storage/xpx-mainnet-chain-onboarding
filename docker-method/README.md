@@ -199,24 +199,20 @@ Replace the docker image with the latest docker image `proximax/proximax-sirius-
 
 ```sh
 docker-compose down
-sed -i 's/v0.6.9-buster/v0.7.0-buster/g' docker-compose.yml
+sed -i 's/v0.6.9-buster/v0.7.0-bullseye/g' docker-compose.yml
 docker-compose up -d
 ```
 
 ### Config Upgrade
-Update the configuration file using `jq`.  
 
 ```sh
-#In Ubuntu, you can install `jq` as follow:
-sudo apt install jq
-
 docker-compose down
 
 # update  config-network.properties
-curl arcturus.xpxsirius.io:3000/config/3494590000000 | jq -r '.networkConfig.networkConfig' > resources/config-network.properties
+curl https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/release-v0.7.0/docker-method/resources/config-network.properties > resources/config-network.properties
 
 # update  supported-entities.json
-curl https://arcturus.xpxsirius.io/config/4919400  | jq -r '.networkConfig.supportedEntityVersions' > resources/supported-entities.json
+curl https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/release-v0.7.0/docker-method/resources/supported-entities.json   > resources/supported-entities.json
 
 docker-compose up -d
 ```
