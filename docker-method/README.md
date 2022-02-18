@@ -199,6 +199,7 @@ Replace the docker image with the latest docker image `proximax/proximax-sirius-
 
 ```sh
 docker-compose down
+## If you are upgrading from v0.6.7, then replace v0.6.9-buster with v0.6.7-buster
 sed -i 's/v0.6.9-buster/v0.7.0-bullseye/g' docker-compose.yml
 docker-compose up -d
 ```
