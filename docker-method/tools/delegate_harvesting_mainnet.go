@@ -10,15 +10,14 @@ import (
 	"github.com/manifoldco/promptui"
 	crypto "github.com/proximax-storage/go-xpx-crypto"
 	"github.com/proximax-storage/go-xpx-chain-sdk/sdk"
+	"github.com/proximax-storage/go-xpx-chain-sdk/sdk/websocket"
+	sync "github.com/proximax-storage/go-xpx-chain-sync"
 )
 
 var apiNodes = []string{
-	"https://arcturus.xpxsirius.io",
-	"https://aldebaran.xpxsirius.io",
-	"https://betelgeuse.xpxsirius.io",
-	"https://bigcalvin.xpxsirius.io",
-	"https://delphinus.xpxsirius.io",
-	"https://lyrasithara.xpxsirius.io",
+	"http://aldebaran.xpxsirius.io:3000",
+	"http://betelgeuse.xpxsirius.io:3000",
+	"http://bigcalvin.xpxsirius.io:3000",
 }
 
 var networkType sdk.NetworkType
@@ -34,6 +33,7 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
+
 	client = sdk.NewClient(nil,config)
 
 	networkType = config.NetworkType
@@ -83,21 +83,36 @@ func main() {
         return
     }
 
-    // Sign transaction
-    signedTransaction, err := account.Sign(transaction)
-    if err != nil {
-        fmt.Printf("Sign returned error: %s", err)
+    // // Sign transaction
+    // signedTransaction, err := account.Sign(transaction)
+    // if err != nil {
+    //     fmt.Printf("Sign returned error: %s", err)
+    //     return
+	// }
+
+	// // Announce transaction
+	// restTx, err := client.Transaction.Announce(context.Background(), signedTransaction)
+    // if err != nil {
+    //     fmt.Printf("Transaction.Announce returned error: %s", err)
+    //     return
+    // }
+	
+	ws, err := websocket.NewClient(ctx, config)
+	if err != nil {
+		panic(err)
+	}
+
+	signedTransaction, err := sync.Announce(ctx, config, ws, account, transaction)
+	if err != nil {
+		panic(err)
+	}
+
+	if signedTransaction.Err() != nil {
+		fmt.Printf("Sign returned error: %s", err)
         return
 	}
 
-	// Announce transaction
-	restTx, err := client.Transaction.Announce(context.Background(), signedTransaction)
-    if err != nil {
-        fmt.Printf("Transaction.Announce returned error: %s", err)
-        return
-    }
-	
-	fmt.Printf("%s\n", restTx)
+	// fmt.Printf("%s\n", restTx)
 	fmt.Printf("Transaction Hash: \t%v\n", signedTransaction.Hash)
 	fmt.Printf("Signer: \t\t%X\n\n", account.PublicAccount.PublicKey)
 
