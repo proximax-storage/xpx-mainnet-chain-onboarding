@@ -60,7 +60,8 @@
             "name": "Block",
             "type": "33091",
             "supportedVersions": [
-                3
+                3,
+                4
             ]
         },
         {
@@ -70,6 +71,16 @@
                 1
             ]
         },
+        {
+            "name": "Harvester_Add",
+            "type": "16737",
+            "supportedVersions": [1]
+        },
+        {
+            "name": "Harvester_Remove",
+            "type": "16993",
+            "supportedVersions": [1]
+        },        
         {
             "name": "Hash_Lock",
             "type": "16712",

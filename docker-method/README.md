@@ -8,13 +8,13 @@ Ensure that your local network allows inbound/outbound traffic on these ports:
 - 7902/tcp
 
 A note on System Requirements:
-Theoretically, this dockerized Sirius Peer package can run on any OS running Docker version 19.03.3 and docker-compose version 1.24.0.
+Theoretically, this dockerized Sirius Peer package can run on any OS running Docker version 20.10 and docker-compose version 1.24.0.
 
 But if you really need a minimum benchmark, we have seen the Sirius Blockchain Peer to work with a minimum Hardware of 1 CPU core and 2GB RAM.
 
 This README was prepared by testing the package on:
 - Debian 10 ++
-- Ubuntu 18.04 ++
+- Ubuntu 22.04 ++
 - CentOS 7 ++
 
 ## Pre-requisite
@@ -34,6 +34,11 @@ Remember that you will have to log out and back in for this to take effect!"
 
 Installation instructions for docker-compose can be found [here](https://docs.docker.com/compose/install/). 
 
+```
+#download and install compose standalone
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.7.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+```
+
 Enable and start Docker:
 ```sh
 sudo systemctl enable docker.service
@@ -48,12 +53,12 @@ sudo systemctl status docker.service
 **If you are upgrading from a previous version, please skip this section and go to next section below**
 
 ```sh
-wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.7.0/public-mainnet-peer-package-release-v0.7.0.tar.gz
+wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.9.0/public-mainnet-peer-package-release-v0.9.0.tar.gz
 # verify the SHA256 Hash Checksum is correct
-wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.7.0/public-mainnet-peer-package-release-v0.7.0.tar.gz.sha256
-shasum -c public-mainnet-peer-package-release-v0.7.0.tar.gz.sha256
+wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.9.0/public-mainnet-peer-package-release-v0.9.0.tar.gz.sha256
+shasum -c public-mainnet-peer-package-release-v0.9.0.tar.gz.sha256
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
-tar -xvf public-mainnet-peer-package-release-v0.7.0.tar.gz
+tar -xvf public-mainnet-peer-package-release-v0.9.0.tar.gz
 cd public-mainnet-peer-package
 ```
 
@@ -95,8 +100,8 @@ Please note that if your account does not have any XPX or previously linked to a
 
 ## Generate a keypair for bootkey
 ```sh
-chmod +x tools/generate_key_pair
-tools/generate_key_pair
+chmod +x tools/gen_keypair_addr
+tools/gen_keypair_addr
 ```
 
 ## Insert private key in [config-user.properties](resources/config-user.properties)
@@ -187,36 +192,14 @@ When the service won't start or you have a corrupted database, you can reset the
 
 ```sh
 docker-compose down
-rm -rf data/server.lock
-touch data/recovery.lock
+chmod +x reset.sh
+sudo ./reset.sh
 docker-compose up
 ```
 
 ## Upgrading
 
-### Software Version Upgrade
-Replace the docker image with the latest docker image `proximax/proximax-sirius-chain:v0.7.0-bullseye` in `docker-compose.yml.
-
-```sh
-docker-compose down
-## If you are upgrading from v0.6.7, then replace v0.6.9-buster with v0.6.7-buster
-sed -i 's/v0.6.9-buster/v0.7.0-bullseye/g' docker-compose.yml
-docker-compose up -d
-```
-
-### Config Upgrade
-
-```sh
-docker-compose down
-
-# update  config-network.properties
-curl https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/release-v0.7.0/docker-method/resources/config-network.properties > resources/config-network.properties
-
-# update  supported-entities.json
-curl https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/release-v0.7.0/docker-method/resources/supported-entities.json   > resources/supported-entities.json
-
-docker-compose up -d
-```
+When upgrading the node, it's best to download the package, copy the `resources` folder and update the relevant configuration file as mentioned above.
 
 ## Helpdesk
 We have a [telegram helpdesk](https://t.me/proximaxhelpdesk) to assist general queries.
