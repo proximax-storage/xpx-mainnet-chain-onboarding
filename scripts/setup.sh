@@ -19,11 +19,19 @@ else
     exit 1
 fi
 
-if [ -x "$(command -v docker-compose)" ]; then
-    echo "docker-compose is installed"
-else
-    echo "docker-composse is not installed"
-    exit 1
+output="$(docker compose version)"
+
+if [[ $? -eq 0 ]] ; then
+    echo "docker compose is installed"
+    compose_cmd="docker compose"
+else 
+    if [ -x "$(command -v docker-compose)" ]; then
+        echo "docker-compose is installed"
+        compose_cmd="docker-compose"
+    else
+        echo "docker-composse is not installed"
+        exit 1
+    fi
 fi
 
 
@@ -83,15 +91,23 @@ find -type f -not -name "*.*" -exec chmod +x \{\} \;
 cd ..
 
 # Enter private key
-prompt="Harvester Private Key: " 
-echo -n "${prompt}" >&2 
-while true; do 
-    read -N 1 -s character 
-    [ "${character}" == $'\n' ] && break 
-    echo -n "*" >&2 
-    private_key="${private_key}${character}" 
-done 
-echo >&2 
+while true; do
+    private_key=""
+    prompt="Harvester Private Key: " 
+    echo -n "${prompt}" >&2 
+    while true; do 
+        read -N 1 -s character 
+        [ "${character}" == $'\n' ] && break 
+        echo -n "*" >&2 
+        private_key="${private_key}${character}" 
+    done 
+    echo >&2 
+    if [[ ${#private_key} -eq 64 ]]; then
+        break
+    else
+        echo "Private key should be 64 chars"
+    fi
+done
 
 # TODO
 # check whether account is linked or multisig using a golang script
@@ -113,7 +129,7 @@ echo "
 ## Configuration complete.  To start your sirius chain, run the following:
 
 cd $base_dir/public-mainnet-peer-package
-docker-compose up -d
+$compose_cmd up -d
 
 ###########################################################################
 "
