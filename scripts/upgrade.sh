@@ -65,14 +65,14 @@ else
     fi
 fi
 
+# stopping existing docker
+cd $base_dir
+cd public-mainnet-peer-package
+$compose_cmd down
+
 ## Download package from repository
 wget $DOWNLOAD_URL -P /tmp
-cd $base_dir
 tar -xvf /tmp/$P2P_PACKAGE public-mainnet-peer-package/resources public-mainnet-peer-package/docker-compose.yml public-mainnet-peer-package/entrypoint.sh
-cd public-mainnet-peer-package
-
-# stopping existing docker
-$compose_cmd down
 
 # Resources
 cd resources
