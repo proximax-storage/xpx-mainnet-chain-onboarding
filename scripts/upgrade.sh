@@ -7,6 +7,17 @@ SIRIUS_CHAIN_VERSION="release-v0.9.0"
 P2P_PACKAGE="public-mainnet-peer-package-$SIRIUS_CHAIN_VERSION.tar.gz"
 DOWNLOAD_URL="https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/$SIRIUS_CHAIN_VERSION/$P2P_PACKAGE"
 
+## Functions
+
+mask() {
+    local n=6                    # number of chars to leave
+    local a="${1:0:n}"           # take the first n chars
+    local c="${1:${#1}-n}"       # take the last n chars
+    local b="${1:n:-n}"          # take the chars between a and c
+    printf "%s%s%s\n" "$a" "${b//?/*}" "$c"
+}
+
+
 ## Prompt
 # Base installation directory
 printf "Enter base installation directory [default: $DEFAULT_PATH]:" 
@@ -17,6 +28,11 @@ if [ -z "$base_dir" ]; then
   base_dir=$DEFAULT_PATH
 fi
 
+
+if [ ! "$(ls -A $base_dir/public-mainnet-peer-package)" ]; then 
+    echo "$base_dir does not exists."
+    exit 1
+fi
 
 cd $base_dir/public-mainnet-peer-package
 
@@ -34,8 +50,8 @@ harvest_key=$(sed -n '/^harvestKey\s*=\s*/{s/^harvestKey\s*=\s*//;p}' config-har
 echo Existing Configuration:
 echo "Friendly Name is $friendly_name"
 echo "Host is $node_host"
-echo "BootKey is $boot_key"
-echo "HarvestKey is $harvest_key"
+printf "BootKey is "; mask $boot_key
+printf "HarvestKey is "; mask $harvest_key
 
 while true; do
     read -p "Is the configuration correct? (y/n) " yn
