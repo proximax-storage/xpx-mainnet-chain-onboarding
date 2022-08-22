@@ -29,12 +29,12 @@ if [ -z "$base_dir" ]; then
 fi
 
 
-if [ ! "$(ls -A $base_dir/public-mainnet-peer-package)" ]; then 
+if [ ! "$(ls -A $base_dir)" ]; then 
     echo "$base_dir does not exists."
     exit 1
 fi
 
-cd $base_dir/public-mainnet-peer-package
+cd $base_dir
 
 # verify whether there is an existing installation
 # TODO
@@ -76,14 +76,13 @@ else
         echo "docker-compose is installed"
         compose_cmd="docker-compose"
     else
-        echo "docker-composse is not installed"
+        echo "docker-compose is not installed"
         exit 1
     fi
 fi
 
-# stopping existing docker
+echo "stopping sirius chain docker just in case"
 cd $base_dir
-cd public-mainnet-peer-package
 $compose_cmd down
 
 ## Download package from repository
@@ -106,7 +105,7 @@ echo "
 ###########################################################################
 ## Configuration complete.  To start your sirius chain, run the following:
 
-cd $base_dir/public-mainnet-peer-package
+cd $base_dir
 $compose_cmd up -d
 
 ###########################################################################

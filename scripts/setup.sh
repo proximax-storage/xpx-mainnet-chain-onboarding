@@ -67,7 +67,8 @@ fi
 wget $DOWNLOAD_URL -P /tmp
 cd $base_dir
 tar -xvf /tmp/$P2P_PACKAGE 
-cd public-mainnet-peer-package
+mv public-mainnet-peer-package/* .
+rmdir public-mainnet-peer-package
 
 echo "assign friendly"
 pattern=" |'"
