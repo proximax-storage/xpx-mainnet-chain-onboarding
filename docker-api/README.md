@@ -48,10 +48,10 @@ $ sudo systemctl status docker.service
 **If you are upgrading from a previous version, please skip this section and go to next section below**
 
 ```sh
-wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.6.9/public-mainnet-api-package-release-v0.9.0.tar.gz
+wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.9.0/public-mainnet-api-package-release-v0.9.0.tar.gz
 
 # verify the SHA256 Hash Checksum is correct
-wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.6.9/public-mainnet-api-package-release-v0.9.0.tar.gz.sha256
+wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.9.0/public-mainnet-api-package-release-v0.9.0.tar.gz.sha256
 shasum -c public-mainnet-api-package-release-v0.9.0.tar.gz.sha256 
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
 shasum -c public-mainnet-api-package-release-v0.9.0.tar.gz.sha256 
