@@ -88,11 +88,14 @@ $compose_cmd down
 ## Download package from repository
 wget $DOWNLOAD_URL -P /tmp
 tar -xvf /tmp/$P2P_PACKAGE public-mainnet-peer-package/resources public-mainnet-peer-package/docker-compose.yml public-mainnet-peer-package/entrypoint.sh
+cp -r public-mainnet-peer-package/* .
+rm -rf public-mainnet-peer-package
+rm /tmp/$P2P_PACKAGE 
 
 # Resources
 cd resources
 sed -i "s/^\(host\s*=\s*\).*\$/\1$node_host/" config-node.properties
-sed -i "s/^\friendlyName\s*=\s*\.*\$/friendlyName = $friendly_name/" config-node.properties
+sed -i "s/^\(friendlyName\s*=\s*\).*\$/friendlyName = $friendly_name/" config-node.properties
 sed -i "s/^\(harvestKey\s*=\s*\).*\$/\1$harvest_key/" config-harvesting.properties
 sed -i "s/^\(bootKey\s*=\s*\).*\$/\1$boot_key/" config-user.properties
 cd ..
