@@ -17,7 +17,7 @@ services:
 
   catapult-api-node:
     # Downloads Catapult Server from specified Docker repo
-    image: proximax/proximax-sirius-chain:v0.6.9-buster
+    image: proximax/proximax-sirius-chain:v0.9.0-bullseye
     ports:
       - 7902:7902
       - 7900:7900
@@ -32,11 +32,11 @@ services:
     - db
 
   rest-gateway:
-    image: proximax/proximax-sirius-rest:v0.6.6
+    image: proximax/proximax-sirius-rest:release-v0.8.0
     ports:
     - "3000:3000"
     volumes:
     - ./restuserconfig/rest.json:/node_modules/catapult-api-rest/resources/rest.json
-    command: ash -c "yarn start"
+    command: "node src/index.js"
     depends_on:
     - catapult-api-node
