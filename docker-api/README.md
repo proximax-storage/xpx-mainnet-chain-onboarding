@@ -48,12 +48,14 @@ $ sudo systemctl status docker.service
 **If you are upgrading from a previous version, please skip this section and go to next section below**
 
 ```sh
-wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.6.9/public-mainnet-api-package-release-v0.6.9.tar.gz
+wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.6.9/public-mainnet-api-package-release-v0.9.0.tar.gz
 
 # verify the SHA256 Hash Checksum is correct
-wget wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.6.9/public-mainnet-api-package-release-v0.6.9.tar.gz.sha256
+wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.6.9/public-mainnet-api-package-release-v0.9.0.tar.gz.sha256
+shasum -c public-mainnet-api-package-release-v0.9.0.tar.gz.sha256 
 # If ok, you have downloaded an authentic file, otherwise the file is corrupted.
-tar -xvf public-mainnet-api-package-release-v0.6.9.tar.gz
+shasum -c public-mainnet-api-package-release-v0.9.0.tar.gz.sha256 
+tar -xvf public-mainnet-api-package-release-v0.9.0.tar.gz
 cd public-mainnet-api-package
 ```
 
@@ -62,6 +64,8 @@ cd public-mainnet-api-package
 To set up node bootkeys and client rest keys for the API node, run the following script:
 
 ```
+$ chmod +x tools/gen_keypair_addr
+$ chmod +x tools/auto_install_keys.sh
 $ tools/auto_install_keys.sh
 ```
 
@@ -229,13 +233,18 @@ $ docker-compose up
 
 ## Upgrading
 
-Replace the docker image with the latest docker image `proximax/proximax-sirius-chain:v0.6.7-buster` in `docker-compose.yml.
+There is an upgrade bash script
 
-```sh
-docker-compose down
-sed -i 's/v0.6.7-buster/v0.6.9-buster/g' docker-compose.yml
-docker-compose up -d
 ```
+wget https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/master/docker-api/tools/upgrade-api.sh
+chmod +x upgrade-api.sh
+./upgrade-api.sh
+```
+
+when prompted for base installation, please include the full path including the package names:
+e.g.
+`mnt/proximax/public-mainnet-api-package`
+
 
 ## Helpdesk
 We have a [telegram helpdesk](https://t.me/proximaxhelpdesk) to assist general queries.
