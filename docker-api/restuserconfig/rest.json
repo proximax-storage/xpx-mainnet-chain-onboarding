@@ -8,7 +8,7 @@
     "crossDomainHttpMethods": ["GET", "POST", "PUT", "OPTIONS"],
     "cors": "*",
     "clientPrivateKey": "REST_PRIVATE_KEY",
-    "extensions": ["accountLink", "accountProperties", "aggregate", "exchange", "config", "lock", "metadata", "mosaic", "multisig", "namespace", "operation", "receipts", "richlist", "service", "supercontract", "transfer", "upgrade"],
+    "extensions": ["accountLink", "accountProperties", "aggregate", "exchange", "committee", "config", "lock", "metadata_v2", "mosaic", "multisig", "namespace", "receipts", "richlist", "transfer", "upgrade"],
     "db": {
         "url": "mongodb://db:27017/",
         "name": "catapult",

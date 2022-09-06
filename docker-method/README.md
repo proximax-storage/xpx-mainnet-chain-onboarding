@@ -201,6 +201,30 @@ docker-compose up
 
 When upgrading the node, it's best to download the package, copy the `resources` folder and update the relevant configuration file as mentioned above.
 
+## Restore from Snapshot
+
+```
+snapshot-filename="mainnet-backup-2022.09.05.tar.xz"
+echo "downloading snapshot and check sum"
+wget https://sirius-chain-mainnet-backup.s3.ap-southeast-1.amazonaws.com/$snapshot-filename.sha256
+wget https://sirius-chain-mainnet-backup.s3.ap-southeast-1.amazonaws.com/$snapshot-filename
+shasum -c $snapshot-filename.sha256
+
+echo "deleting data directory"
+for dir in ./data/*; do
+  sudo rm -rf $dir
+done
+
+if [ -d "./mongodata" ]; then
+    echo "deleting mongodata directory"
+    for dir in mongodata/*; do
+        sudo rm -rf $dir
+    done
+fi
+
+tar -xvf $snapshotfilename data
+```
+
 ## Helpdesk
 We have a [telegram helpdesk](https://t.me/proximaxhelpdesk) to assist general queries.
 
