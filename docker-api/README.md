@@ -231,6 +231,30 @@ $ ./reset.sh
 $ docker-compose up
 ```
 
+## Restore from Snapshot
+
+```
+snapshot-filename="mainnet-backup-2022.09.05.tar.xz"
+echo "downloading snapshot and check sum"
+wget https://sirius-chain-mainnet-backup.s3.ap-southeast-1.amazonaws.com/$snapshot-filename.sha256
+wget https://sirius-chain-mainnet-backup.s3.ap-southeast-1.amazonaws.com/$snapshot-filename
+shasum -c $snapshot-filename.sha256
+
+echo "deleting data directory"
+for dir in ./data/*; do
+  sudo rm -rf $dir
+done
+
+if [ -d "./mongodata" ]; then
+    echo "deleting mongodata directory"
+    for dir in mongodata/*; do
+        sudo rm -rf $dir
+    done
+fi
+
+tar -xvf $snapshotfilename
+```
+
 ## Upgrading
 
 There is an upgrade bash script
