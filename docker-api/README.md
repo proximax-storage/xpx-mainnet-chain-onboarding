@@ -22,13 +22,13 @@ This onboarding method requires `docker` and `docker-compose`.
 
 Run the following command to install `docker`:
 ```
-$ curl -fsSL https://get.docker.com -o get-docker.sh
-$ sh get-docker.sh
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
 ```
 
 As per docker post-installation note, we recommend using Docker as a non-root user.  Therefore, you should now consider adding your user to the "docker" group with something like:
 ```
-$ sudo usermod -aG docker $your_user
+sudo usermod -aG docker $your_user
 ```
 Remember that you will have to log out and back in for this to take effect!"
 
@@ -36,9 +36,9 @@ Installation instructions for docker-compose can be found [here](https://docs.do
 
 Enable and start Docker:
 ```
-$ sudo systemctl enable docker.service
-$ sudo systemctl start docker.service
-$ sudo systemctl status docker.service
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+sudo systemctl status docker.service
 ```
 
 ## Download and Extract the package
@@ -64,9 +64,9 @@ cd public-mainnet-api-package
 To set up node bootkeys and client rest keys for the API node, run the following script:
 
 ```
-$ chmod +x tools/gen_keypair_addr
-$ chmod +x tools/auto_install_keys.sh
-$ tools/auto_install_keys.sh
+chmod +x tools/gen_keypair_addr
+chmod +x tools/auto_install_keys.sh
+tools/auto_install_keys.sh
 ```
 
 The script will generate random keypairs and will insert the node bootkey and client rest key into the following files: `resources/config-user.properties` and `restuserconfig/rest.json`
@@ -87,13 +87,13 @@ roles = Api
 ## Delegated Validating
 You may activate your account for delegated validating by running the following tool:
 ```
-$ tools/delegated_validating_mainnet
+tools/delegated_harvesting_mainnet
 ```
 
 After running the above tool, add the delegated remote account private key in the [config-harvesting.properties](resources/config-harvesting.properties):
 ```
 [harvesting]
-# private keys are 64 characters
+
 harvestKey = REMOTE_ACCOUNT_PRIVATE_KEY
 beneficiary = 0000000000000000000000000000000000000000000000000000000000000000
 isAutoHarvestingEnabled = true
@@ -109,13 +109,13 @@ Please note that if your account does not have any XPX or previously linked to a
 ## Start the API Node
 
 ```
-$ docker-compose up -d
+docker-compose up -d
 ```
 
 ## Check if container is running
 
 ```
-$ docker-compose ps
+docker-compose ps
 ```
 There should be 3 containers running:
 - catapult-api-node
@@ -144,7 +144,7 @@ curl ifconfig.me
 Use the ip address that you get from `curl ifconfig.me` and enter into the web-browser as follow http://<node public ip address>:3000/chain/height.
 
 Example:
-In the linux shell terminal:  `$curl ifconfig.me` outputs `202.187.132.85`
+In the linux shell terminal:  `curl ifconfig.me` outputs `202.187.132.85`
 
 I will enter the following in my Chrome web browser:
 http://202.187.132.85:3000/chain/height
@@ -152,18 +152,16 @@ and I should see something like this: `{"height":[1440873,0]}`
 
 If the above fails, please check your node's firewall setting and that port 3000 is accessible from the Internet.
 
-You can add your node to the web explorer `http://explorer.xpxsirius.io`.  Select `node`, `Add node`, key in `http://<ip_address>:3000`, and click `Add`.  Your node should appear in the Node section of the explorer.
-
 Refer to [here](https://bcdocs.xpxsirius.io/endpoints/) to get the full list of available endpoints of **ProximaX Sirius Chain**.
 
 ## Stop the API Node
 ```
-$ docker-compose down
+docker-compose down
 ```
 
 ## Restart the API Node
 ```
-$ docker-compose restart
+docker-compose restart
 ```
 
 ## Check logs
@@ -173,21 +171,21 @@ There are 2 ways to view the logs:
 
 ```sh
 # check logs of API node
-$ docker-compose logs --tail=100 -f catapult-api-node
+docker-compose logs --tail=100 -f catapult-api-node
 # Press Ctrl-C to stop tailing the logs
 
 # check logs of Mongo
-$ docker-compose logs db
+docker-compose logs db
 
 # check logs of rest-gateway
-$ docker-compose logs rest-gateway
+docker-compose logs rest-gateway
 ```
 
 2. log files in `logs` directory
 
 ## Create service and auto-start container on reboot
 ```
-$ sudo nano /etc/systemd/system/sirius-chain-mainnet.service
+sudo nano /etc/systemd/system/sirius-chain-mainnet.service
 ```
 
 Put this text in this file and replace `PATH_OF_YML_FILE`:
@@ -212,13 +210,13 @@ WantedBy=multi-user.target
 ```
 
 ```
-$ sudo systemctl daemon-reload
-$ sudo systemctl enable sirius-chain-mainnet
+sudo systemctl daemon-reload
+sudo systemctl enable sirius-chain-mainnet
 ```
 
 If the Docker container isn't running yet, you can start the container using this command:
 ```
-$ sudo systemctl start sirius-chain-mainnet
+sudo systemctl start sirius-chain-mainnet
 ```
 
 ## Reset Chain
@@ -226,9 +224,9 @@ $ sudo systemctl start sirius-chain-mainnet
 When the service won't start or you have a corrupted database, you can reset the chain with the following:
 
 ```sh
-$ docker-compose down
-$ ./reset.sh
-$ docker-compose up
+docker-compose down
+./reset.sh
+docker-compose up
 ```
 
 ## Restore from Snapshot
