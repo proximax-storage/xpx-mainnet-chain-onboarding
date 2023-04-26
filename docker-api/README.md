@@ -87,7 +87,8 @@ roles = Api
 ## Delegated Validating
 You may activate your account for delegated validating by running the following tool:
 ```
-tools/delegated_harvesting_mainnet
+chmod +x tools/delegate_harvesting_mainnet
+tools/delegate_harvesting_mainnet
 ```
 
 After running the above tool, add the delegated remote account private key in the [config-harvesting.properties](resources/config-harvesting.properties):
