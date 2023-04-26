@@ -87,6 +87,7 @@ roles = Api
 ## Delegated Validating
 You may activate your account for delegated validating by running the following tool:
 ```
+chmod +x tools/delegate_harvesting_mainnet
 tools/delegated_harvesting_mainnet
 ```
 
