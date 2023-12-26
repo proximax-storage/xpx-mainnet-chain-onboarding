@@ -34,8 +34,8 @@ The Sirius Chain Mainnet will be upgraded to version `v1.3.1` and the network co
 
 The docker image for Sirius Chain `v1.3.1` will be released to Dockerhub once the network has reached the upgrade height.
 
-There is an `upgrade` CLI tool located in the Git repository to assist node owner with the upgrade process.
-The `upgrade` CLI tool will:
+There is an `upgrade_util` CLI tool located in the Git repository to assist node owner with the upgrade process.
+The `upgrade_util` CLI tool will:
 - ask for a directory where the node is installed. Default: /mnt/siriuschain
 - ask for a REST server URL. Default: http://aldebaran.xpxsirius.io:3000
 - prompt the node owner to update the boot key if the boot key is a multisig or conflicts with the harvesting key
