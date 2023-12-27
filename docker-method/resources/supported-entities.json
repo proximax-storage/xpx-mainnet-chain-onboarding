@@ -74,13 +74,17 @@
         {
             "name": "Harvester_Add",
             "type": "16737",
-            "supportedVersions": [1]
+            "supportedVersions": [
+                1
+            ]
         },
         {
             "name": "Harvester_Remove",
             "type": "16993",
-            "supportedVersions": [1]
-        },        
+            "supportedVersions": [
+                1
+            ]
+        },
         {
             "name": "Hash_Lock",
             "type": "16712",
@@ -204,6 +208,13 @@
             ]
         },
         {
+            "name": "addDbrbProcess",
+            "type": "16748",
+            "supportedVersions": [
+                1
+            ]
+        },
+        {
             "name": "exchange",
             "type": "16989",
             "supportedVersions": [
@@ -218,10 +229,24 @@
             ]
         },
         {
+            "name": "placeSdaExchangeOffer",
+            "type": "16746",
+            "supportedVersions": [
+                1
+            ]
+        },
+        {
             "name": "removeExchangeOffer",
             "type": "17245",
             "supportedVersions": [
                 2
+            ]
+        },
+        {
+            "name": "removeSdaExchangeOffer",
+            "type": "17002",
+            "supportedVersions": [
+                1
             ]
         }
     ]
