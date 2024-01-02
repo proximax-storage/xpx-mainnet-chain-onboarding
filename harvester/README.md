@@ -56,7 +56,7 @@ For node owners who is harvesting with a remote delegated account:
 [119EAB9545B31613D88557F8E783DBD1D01790783C112742B597F14E28A8A50E](https://explorer.xpxsirius.io/#/account/119EAB9545B31613D88557F8E783DBD1D01790783C112742B597F14E28A8A50E) is the `HARVESTER_PUBLIC_KEY` and the signer should be this account [1DBCFA374315B059FDA6B08A981737CECB73912D4689069CD71850DCC3AA3031 ](https://explorer.xpxsirius.io/#/account/1DBCFA374315B059FDA6B08A981737CECB73912D4689069CD71850DCC3AA3031)
 
 #### Scenario 3
-The noder owner is harvesting with a multisig account:
+The node owner is harvesting with a multisig account:
 
 `SIGNER_PRIVATE_KEY` = the cosigner account
 `HARVESTER_PUBLIC_KEY` = public key of multisig account that is staking XPX.
