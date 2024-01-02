@@ -44,6 +44,13 @@ The `upgrade_util` CLI tool will:
 - stop the sirius chain node
 - update the node config
 
+Run the following commands to download and execute the `upgrade_util` CLI:
+```bash 
+wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/raw/master/upgrade/upgrade_util
+chmod +x ./upgrade_util
+./upgrade_util
+```
+
 After the tool completes its work successfully, run the node with command:
 ```
 docker-compose up -d
