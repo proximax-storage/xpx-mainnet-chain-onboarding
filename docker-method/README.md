@@ -6,6 +6,7 @@ Ensure that your local network allows inbound/outbound traffic on these ports:
 - 7900/tcp
 - 7901/tcp
 - 7902/tcp
+- 7903/tcp
 
 A note on System Requirements:
 Theoretically, this dockerized Sirius Peer package can run on any OS running Docker version 20.10 and docker-compose version 1.24.0.
@@ -51,6 +52,8 @@ sudo systemctl status docker.service
 ### For new peer setup
 
 **If you are upgrading from a previous version, please skip this section and go to next section below**
+
+**The following instructions will setup your node for version 0.9.0.  You will need to upgrade your node from v0.9.0 to v1.3.1 and above.  Please don't skip the upgrade section**
 
 ```sh
 wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/release-v0.9.0/public-mainnet-peer-package-release-v0.9.0.tar.gz
@@ -199,12 +202,12 @@ docker-compose up
 
 ## Upgrading
 
-When upgrading the node, it's best to download the package, copy the `resources` folder and update the relevant configuration file as mentioned above.
+For upgrading, please refer to the following [README](../upgrade/README.md) in upgrade folder.
 
 ## Restore from Snapshot
 
 ```
-snapshot-filename="mainnet-backup-2022.09.05.tar.xz"
+snapshot-filename="mainnet-backup-2023.12.31.tar.xz"
 echo "downloading snapshot and check sum"
 wget https://sirius-chain-mainnet-backup.s3.ap-southeast-1.amazonaws.com/$snapshot-filename.sha256
 wget https://sirius-chain-mainnet-backup.s3.ap-southeast-1.amazonaws.com/$snapshot-filename
