@@ -33,34 +33,14 @@ chmod +x add-harvester-util
 ./add-harvester-util -url http://aldebaran.xpxsirius.io:3000 -signerPrivateKey SIGNER_PRIVATE_KEY -harvesterPublicKey HARVESTER_PUBLIC_KEY
 
 ```
-Please replace the above `SIGNER_PRIVATE_KEY` with the owner private key (account with XPX and linked to harvesting key) and `HARVESTER_PUBLIC_KEY` with the public key of your node harvesting key.  
+Please replace the above `SIGNER_PRIVATE_KEY` and `HARVESTER_PUBLIC_KEY` where:
+
+- `SIGNER_PRIVATE_KEY` = private key of any non-multisig account that holds XPX to do a transactions
+- `HARVESTER_PUBLIC_KEY` = public key of the harvesting private key stored in `config-harvesting.properties`
+
+
 
 <i> Note: In order to get the public key of your node harvesting key, you can create an account in the Sirius Mobile Wallet or Sirius Web Wallet using the harvesting private key.</i>
-
-### Examples:
-
-#### Scenario 1
-For node owners who is using personal account as harvesting account without remote delegated account:
-`SIGNER_PRIVATE_KEY` = account that holds XPX
-`HARVESTER_PUBLIC_KEY` = public key of `SIGNER_PRIVATE_KEY`
-
-**This is not recommended as your personal key is at risk if the node is compromised** 
-
-
-#### Scenario 2
-For node owners who is harvesting with a remote delegated account:
-`SIGNER_PRIVATE_KEY` = your staking account that holds XPX
-`HARVESTER_PUBLIC_KEY` = public key of remote delegated account 
-
-
-[119EAB9545B31613D88557F8E783DBD1D01790783C112742B597F14E28A8A50E](https://explorer.xpxsirius.io/#/account/119EAB9545B31613D88557F8E783DBD1D01790783C112742B597F14E28A8A50E) is the `HARVESTER_PUBLIC_KEY` and the signer should be this account [1DBCFA374315B059FDA6B08A981737CECB73912D4689069CD71850DCC3AA3031 ](https://explorer.xpxsirius.io/#/account/1DBCFA374315B059FDA6B08A981737CECB73912D4689069CD71850DCC3AA3031)
-
-#### Scenario 3
-The node owner is harvesting with a multisig account:
-
-`SIGNER_PRIVATE_KEY` = the cosigner account
-`HARVESTER_PUBLIC_KEY` = public key of multisig account that is staking XPX.
-
 
 ## Check Harvest Account Registration
 
