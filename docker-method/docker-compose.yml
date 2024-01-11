@@ -12,5 +12,4 @@ services:
       - ./data:/data:rw
       - ./logs:/logs:rw
     restart: on-failure:3
-    entrypoint: /chainconfig/entrypoint.sh
     
