@@ -1,114 +1,125 @@
 {
-    "_info": "this file contains a list of all trusted peers and can be shared",
-    "knownPeers": [{
-            "publicKey": "a6b05375f1bf9003333bd33f90d3f5742416cc1125288c077d7f103eeefc7812",
-            "endpoint": {
-                "host": "proximax-01.node.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "proximax-01",
-                "roles": "Peer"
-            }
-        },
+	"_info":"this file contains a list of all trusted peers and can be shared",
+	"knownPeers":[
 		{
-            "publicKey": "f4eba8ddd9be350eb947d4c0d14b792a2ffb0ad6370efb01c852884d20669127",
-            "endpoint": {
-                "host": "proximax-02.node.xpxsirius.io",
-                "port": 7904
-            },
-            "metadata": {
-                "name": "proximax-02",
-                "roles": "Peer"
-            }
-        },
+			"publicKey":"a6b05375f1bf9003333bd33f90d3f5742416cc1125288c077d7f103eeefc7812",
+			"endpoint":{
+				"host":"proximax-01.node.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"proximax-01",
+				"roles":"Peer"
+			}
+		},
 		{
-            "publicKey": "7ad25d920dba8b1d532caf1ccc11ee18ce6a050061deedc5fce420f99af62bf2",
-            "endpoint": {
-                "host": "proximax-03.node.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "proximax-03",
-                "roles": "Peer"
-            }
-        },
+			"publicKey":"f4eba8ddd9be350eb947d4c0d14b792a2ffb0ad6370efb01c852884d20669127",
+			"endpoint":{
+				"host":"proximax-02.node.xpxsirius.io",
+				"port":7904,
+				"dbrbPort":7907
+			},
+			"metadata":{
+				"name":"proximax-02",
+				"roles":"Peer"
+			}
+		},
 		{
-            "publicKey": "00c89d8c2eabe2a26b5d20017d5b4645d70b30f5f080f59a1446f14c406917f9",
-            "endpoint": {
-                "host": "proximax-04.node.xpxsirius.io",
-                "port": 7904
-            },
-            "metadata": {
-                "name": "proximax-04",
-                "roles": "Peer"
-            }
-        },
+			"publicKey":"7ad25d920dba8b1d532caf1ccc11ee18ce6a050061deedc5fce420f99af62bf2",
+			"endpoint":{
+				"host":"proximax-03.node.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"proximax-03",
+				"roles":"Peer"
+			}
+		},
 		{
-            "publicKey": "f0bd6d5d54401f6cdc5d111a0ff0ce72c9e687d7987cccd4a882583146d41c0e",
-            "endpoint": {
-                "host": "proximax-05.node.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "proximax-05",
-                "roles": "Peer"
-            }
-        },
+			"publicKey":"00c89d8c2eabe2a26b5d20017d5b4645d70b30f5f080f59a1446f14c406917f9",
+			"endpoint":{
+				"host":"proximax-04.node.xpxsirius.io",
+				"port":7904,
+				"dbrbPort":7907
+			},
+			"metadata":{
+				"name":"proximax-04",
+				"roles":"Peer"
+			}
+		},
 		{
-            "publicKey": "657cb45b5f929381e14137563d4c886b2f7e24a961663091c0d1354cb0af64e8",
-            "endpoint": {
-                "host": "proximax-06.node.xpxsirius.io",
-                "port": 7904
-            },
-            "metadata": {
-                "name": "proximax-06",
-                "roles": "Peer"
-            }
-        },
+			"publicKey":"f0bd6d5d54401f6cdc5d111a0ff0ce72c9e687d7987cccd4a882583146d41c0e",
+			"endpoint":{
+				"host":"proximax-05.node.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"proximax-05",
+				"roles":"Peer"
+			}
+		},
 		{
-            "publicKey": "5f218fe08e08bcbc84c6897461103f0dab0dc864af49f36d91ef6fc6adffb6bd",
-            "endpoint": {
-                "host": "proximax-07.node.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "proximax-07",
-                "roles": "Peer"
-            }
-        },
+			"publicKey":"657cb45b5f929381e14137563d4c886b2f7e24a961663091c0d1354cb0af64e8",
+			"endpoint":{
+				"host":"proximax-06.node.xpxsirius.io",
+				"port":7904,
+				"dbrbPort":7907
+			},
+			"metadata":{
+				"name":"proximax-06",
+				"roles":"Peer"
+			}
+		},
 		{
-            "publicKey": "97c11aeaa76a2ef75b20174284b5365fc6fedbb7e5b9a49584faf62f02995804",
-            "endpoint": {
-                "host": "proximax-08.node.xpxsirius.io",
-                "port": 7904
-            },
-            "metadata": {
-                "name": "proximax-08",
-                "roles": "Peer"
-            }
-        },
+			"publicKey":"5f218fe08e08bcbc84c6897461103f0dab0dc864af49f36d91ef6fc6adffb6bd",
+			"endpoint":{
+				"host":"proximax-07.node.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"proximax-07",
+				"roles":"Peer"
+			}
+		},
 		{
-            "publicKey": "58c752e60c9ced1988dc20bd5af8c6b6023d577a9d87b75d451a10ea8966f269",
-            "endpoint": {
-                "host": "proximax-09.node.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "proximax-09",
-                "roles": "Peer"
-            }
-        },
+			"publicKey":"97c11aeaa76a2ef75b20174284b5365fc6fedbb7e5b9a49584faf62f02995804",
+			"endpoint":{
+				"host":"proximax-08.node.xpxsirius.io",
+				"port":7904,
+				"dbrbPort":7907
+			},
+			"metadata":{
+				"name":"proximax-08",
+				"roles":"Peer"
+			}
+		},
 		{
-            "publicKey": "d84349f4aa908f5c16b788d6b872fb60f4077479b034d0d1f99f6b517ea78055",
-            "endpoint": {
-                "host": "proximax-10.node.xpxsirius.io",
-                "port": 7904
-            },
-            "metadata": {
-                "name": "proximax-10",
-                "roles": "Peer"
-            }
-        }
-    ]
+			"publicKey":"58c752e60c9ced1988dc20bd5af8c6b6023d577a9d87b75d451a10ea8966f269",
+			"endpoint":{
+				"host":"proximax-09.node.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"proximax-09",
+				"roles":"Peer"
+			}
+		},
+		{
+			"publicKey":"d84349f4aa908f5c16b788d6b872fb60f4077479b034d0d1f99f6b517ea78055",
+			"endpoint":{
+				"host":"proximax-10.node.xpxsirius.io",
+				"port":7904,
+				"dbrbPort":7907
+			},
+			"metadata":{
+				"name":"proximax-10",
+				"roles":"Peer"
+			}
+		}
+	]
 }

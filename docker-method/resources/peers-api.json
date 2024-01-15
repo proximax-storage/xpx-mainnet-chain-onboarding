@@ -1,70 +1,77 @@
 {
-    "_info": "this file contains a list of api peers",
-    "knownPeers": [{
-            "publicKey": "8B1FBE2F65D4AD2EA7A1421109B76CCD13ED2D0F34FCA1F10C93BFA4CC0A5D53",
-            "endpoint": {
-                "host": "arcturus.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "arcturus",
-                "roles": "Api"
-            }
-        },
-        {
-            "publicKey": "BBD403CFE58F27E5C83A55053E48BACD9E18F05F26ED2FB1202FDC3DF252DB14",
-            "endpoint": {
-                "host": "aldebaran.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "aldebaran",
-                "roles": "Api"
-            }
-        },
-        {
-            "publicKey": "791E9110214B4EEFDB1CA220500B08E91D5C3FEC465A3DAA6D62044BD3196E25",
-            "endpoint": {
-                "host": "betelgeuse.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "betelgeuse",
-                "roles": "Api"
-            }
-        },
-        {
-            "publicKey": "D4EBE7785E4BFBCA53D33C27D7953216EF7E2B410731BF3B0A099C77D039BC4D",
-            "endpoint": {
-                "host": "bigcalvin.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "bigcalvin",
-                "roles": "Api"
-            }
-        },
-        {
-            "publicKey": "F0928275E7D8A06AF0E0438CE864BB80F1049FA4854D79E969EAD898E9F26836",
-            "endpoint": {
-                "host": "delphinus.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "delphinus",
-                "roles": "Api"
-            }
-        },
-        {
-            "publicKey": "4C034D9CB4886D95C12DAD4157F74C502C92F4297668E4AB3140823CA8E9A8F1",
-            "endpoint": {
-                "host": "lyrasithara.xpxsirius.io",
-                "port": 7900
-            },
-            "metadata": {
-                "name": "lyrasithara",
-                "roles": "Api"
-            }
-        }
-    ]
+	"_info":"this file contains a list of api peers",
+	"knownPeers":[
+		{
+			"publicKey":"8B1FBE2F65D4AD2EA7A1421109B76CCD13ED2D0F34FCA1F10C93BFA4CC0A5D53",
+			"endpoint":{
+				"host":"arcturus.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"arcturus",
+				"roles":"Api"
+			}
+		},
+		{
+			"publicKey":"BBD403CFE58F27E5C83A55053E48BACD9E18F05F26ED2FB1202FDC3DF252DB14",
+			"endpoint":{
+				"host":"aldebaran.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"aldebaran",
+				"roles":"Api"
+			}
+		},
+		{
+			"publicKey":"791E9110214B4EEFDB1CA220500B08E91D5C3FEC465A3DAA6D62044BD3196E25",
+			"endpoint":{
+				"host":"betelgeuse.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"betelgeuse",
+				"roles":"Api"
+			}
+		},
+		{
+			"publicKey":"D4EBE7785E4BFBCA53D33C27D7953216EF7E2B410731BF3B0A099C77D039BC4D",
+			"endpoint":{
+				"host":"bigcalvin.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"bigcalvin",
+				"roles":"Api"
+			}
+		},
+		{
+			"publicKey":"F0928275E7D8A06AF0E0438CE864BB80F1049FA4854D79E969EAD898E9F26836",
+			"endpoint":{
+				"host":"delphinus.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"delphinus",
+				"roles":"Api"
+			}
+		},
+		{
+			"publicKey":"4C034D9CB4886D95C12DAD4157F74C502C92F4297668E4AB3140823CA8E9A8F1",
+			"endpoint":{
+				"host":"lyrasithara.xpxsirius.io",
+				"port":7900,
+				"dbrbPort":7903
+			},
+			"metadata":{
+				"name":"lyrasithara",
+				"roles":"Api"
+			}
+		}
+	]
 }
