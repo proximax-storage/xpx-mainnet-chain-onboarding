@@ -26,13 +26,13 @@ These transactions can be created in:
 2. [web-wallet](https://web-wallet.xpxsirius.io) (coming soon)
 
 
-## Upgrading from v0.9.0 to v1.3.1
+## Upgrading from v0.9.0 to v1.4.2
 
-The Sirius Chain Mainnet will be upgraded to version `v1.3.1` and the network config will be updated at the same time to enable `Weighted Voting`.
+The Sirius Chain Mainnet will be upgraded to version `v1.4.2` and the network config will be updated at the same time to enable `Weighted Voting`.
 
-`Weighted Voting` keeps the same state of blockchain on every node. On the other hand `NXT based consensus` protocol which is now running in mainnet allows small forks on the tail of the chain which appear all the time and are resolved automatically when the nodes synchronize their local chains with each other. In order to switch to `Weighted Voting` all nodes should run `v0.9.0` until the upgrade height is reached, the nodes will then stop produce new blocks. Then, after all small tail forks are resolved and all the nodes have the same state, the nodes should run `v1.3.1`.
+`Weighted Voting` keeps the same state of blockchain on every node. On the other hand `NXT based consensus` protocol which is now running in mainnet allows small forks on the tail of the chain which appear all the time and are resolved automatically when the nodes synchronize their local chains with each other. In order to switch to `Weighted Voting` all nodes should run `v0.9.0` until the upgrade height is reached, the nodes will then stop produce new blocks. Then, after all small tail forks are resolved and all the nodes have the same state, the nodes should run `v1.4.2`.
 
-The docker image for Sirius Chain `v1.3.1` will be released to Dockerhub once the network has reached the upgrade height.
+The docker image for Sirius Chain `v1.4.2` will be released to Dockerhub once the network has reached the upgrade height.
 
 There is an `upgrade_util` CLI tool located in the Git repository to assist node owner with the upgrade process.
 The `upgrade_util` CLI tool will:
