@@ -3,9 +3,10 @@
 ## Declare variables
 # VARS:
 DEFAULT_PATH="/mnt/siriuschain/"
-SIRIUS_CHAIN_VERSION="release-v0.9.0"
-P2P_PACKAGE="public-mainnet-peer-package-$SIRIUS_CHAIN_VERSION.tar.gz"
-DOWNLOAD_URL="https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/releases/download/$SIRIUS_CHAIN_VERSION/$P2P_PACKAGE"
+SERVICENAME="mainnet-peer"
+SIRIUS_CHAIN_VERSION="release-v1.4.2"
+DOCKERFOLDER='docker-method'
+FAILMSG="UPGRADE FAIL"
 
 ## Functions
 
@@ -30,7 +31,7 @@ fi
 
 
 if [ ! "$(ls -A $base_dir)" ]; then 
-    echo "$base_dir does not exists."
+    echo "$FAILMSG: $base_dir does not exists."
     exit 1
 fi
 
@@ -46,12 +47,28 @@ node_host=$(sed -n '/^host\s*=\s*/{s/^host\s*=\s*//;p}' config-node.properties)
 friendly_name=$(sed -n '/^friendlyName\s*=\s*/{s/^friendlyName\s*=\s*//;p}' config-node.properties)
 boot_key=$(sed -n '/^bootKey\s*=\s*/{s/^bootKey\s*=\s*//;p}' config-user.properties)
 harvest_key=$(sed -n '/^harvestKey\s*=\s*/{s/^harvestKey\s*=\s*//;p}' config-harvesting.properties)
+node_role=$(sed -n -e '/roles/ s/.*= *//p' config-node.properties)
+is_harvest_enabled=$(sed -n '/^isAutoHarvestingEnabled\s*=\s*/{s/^isAutoHarvestingEnabled\s*=\s*//;p}' config-harvesting.properties)
+# TODO check if node is harvesting.  
+# If yes and to upgrade above v0.9.0, check that harvest key is registered as harvester
+
+if [ $node_role == 'Api' ]; then
+  DOCKERFOLDER='docker-api'
+  SERVICENAME="catapult-api-node"
+fi
 
 echo Existing Configuration:
 echo "Friendly Name is $friendly_name"
 echo "Host is $node_host"
+echo "Node is: " $node_role
 printf "BootKey is "; mask $boot_key
 printf "HarvestKey is "; mask $harvest_key
+
+if [ $boot_key == $harvest_key ]; then
+  echo "$FAILMSG: Node bootkey conflicts with harvest key.  Please update the Node Bootkey"
+  # TODO script to update node bootkey
+  exit 1
+fi
 
 while true; do
     read -p "Is the configuration correct? (y/n) " yn
@@ -64,7 +81,6 @@ while true; do
     esac
 done
 
-
 # stop docker just in case
 output="$(docker compose version)"
 
@@ -76,7 +92,7 @@ else
         echo "docker-compose is installed"
         compose_cmd="docker-compose"
     else
-        echo "docker-compose is not installed"
+        echo "$FAILMSG: docker-compose is not installed"
         exit 1
     fi
 fi
@@ -85,31 +101,60 @@ echo "stopping sirius chain docker just in case"
 cd $base_dir
 $compose_cmd down
 
-## Download package from repository
-wget $DOWNLOAD_URL -P /tmp
-tar -xvf /tmp/$P2P_PACKAGE public-mainnet-peer-package/resources public-mainnet-peer-package/docker-compose.yml public-mainnet-peer-package/entrypoint.sh
-cp -r public-mainnet-peer-package/* .
-rm -rf public-mainnet-peer-package
-rm /tmp/$P2P_PACKAGE 
+echo "Creating backup for resources directory and docker-compose.yml"
+cd $base_dir
+if [ -d ./backup ]; then
+    echo "$FAILMSG: Directory backup exists in $base_dir"
+    exit 1
+fi
 
-# Resources
+echo "Create backup folder in $base_dir"
+mkdir backup
+cp docker-compose.yml backup/
+cp -r resources/ backup/
+
+echo "Download $SIRIUS_CHAIN_VERSION/$DOCKERFOLDER config files"
+cd $base_dir
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/docker-compose.yml
 cd resources
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-database.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-dbrb.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-extensions-broker.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-extensions-recovery.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-extensions-server.properties
+# curl -O --silent DONT'T UPDATE https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-harvesting.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-immutable.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-inflation.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-logging-broker.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-logging-recovery.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-logging-server.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-messaging.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-network.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-networkheight.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-node.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-pt.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-task.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-timesync.properties
+# curl -O --silent DONT'T UPDATE https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-user.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/peers-api.json
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/peers-p2p.json
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/supported-entities.json
+
+echo "Updating config files"
 sed -i "s/^\(host\s*=\s*\).*\$/\1$node_host/" config-node.properties
 sed -i "s/^\(friendlyName\s*=\s*\).*\$/friendlyName = $friendly_name/" config-node.properties
-sed -i "s/^\(harvestKey\s*=\s*\).*\$/\1$harvest_key/" config-harvesting.properties
-sed -i "s/^\(bootKey\s*=\s*\).*\$/\1$boot_key/" config-user.properties
-cd ..
-
-#make entrypoint executable
-chmod +x entrypoint.sh
-
-# instructions
-echo "
-###########################################################################
-## Configuration complete.  To start your sirius chain, run the following:
-
 cd $base_dir
-$compose_cmd up -d
-
-###########################################################################
-"
+# instructions
+echo "###########################################################################"
+echo "## Configuration complete.  To start your sirius chain, run the following:"
+echo
+echo "    cd $base_dir"
+echo "    $compose_cmd up -d"
+echo 
+if [ $is_harvest_enabled == "true" ]; then
+    echo "Check here: https://explorer.xpxsirius.io/#/harvester to see whether"
+    echo "the public key of harvestKey is registered in Sirius Chain."
+fi
+echo
+echo "###########################################################################"
+echo
