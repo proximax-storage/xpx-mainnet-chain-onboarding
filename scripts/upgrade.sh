@@ -6,6 +6,7 @@ DEFAULT_PATH="/mnt/siriuschain/"
 SERVICENAME="mainnet-peer"
 SIRIUS_CHAIN_VERSION="release-v1.4.2"
 DOCKERFOLDER='docker-method'
+FAILMSG="UPGRADE FAIL"
 
 ## Functions
 
@@ -30,7 +31,7 @@ fi
 
 
 if [ ! "$(ls -A $base_dir)" ]; then 
-    echo "$base_dir does not exists."
+    echo "$FAILMSG: $base_dir does not exists."
     exit 1
 fi
 
@@ -47,6 +48,9 @@ friendly_name=$(sed -n '/^friendlyName\s*=\s*/{s/^friendlyName\s*=\s*//;p}' conf
 boot_key=$(sed -n '/^bootKey\s*=\s*/{s/^bootKey\s*=\s*//;p}' config-user.properties)
 harvest_key=$(sed -n '/^harvestKey\s*=\s*/{s/^harvestKey\s*=\s*//;p}' config-harvesting.properties)
 node_role=$(sed -n -e '/roles/ s/.*= *//p' config-node.properties)
+is_harvest_enabled=$(sed -n '/^isAutoHarvestingEnabled\s*=\s*/{s/^isAutoHarvestingEnabled\s*=\s*//;p}' config-harvesting.properties)
+# TODO check if node is harvesting.  
+# If yes and to upgrade above v0.9.0, check that harvest key is registered as harvester
 
 if [ $node_role == 'Api' ]; then
   DOCKERFOLDER='docker-api'
@@ -61,13 +65,10 @@ printf "BootKey is "; mask $boot_key
 printf "HarvestKey is "; mask $harvest_key
 
 if [ $boot_key == $harvest_key ]; then
-  echo "Node bootkey conflicts with harvest key.  Please update the Node Bootkey"
+  echo "$FAILMSG: Node bootkey conflicts with harvest key.  Please update the Node Bootkey"
   # TODO script to update node bootkey
   exit 1
 fi
-
-# TODO check if node is harvesting.  
-# If yes and to upgrade above v0.9.0, check that harvest key is registered as harvester
 
 while true; do
     read -p "Is the configuration correct? (y/n) " yn
@@ -80,7 +81,6 @@ while true; do
     esac
 done
 
-
 # stop docker just in case
 output="$(docker compose version)"
 
@@ -92,7 +92,7 @@ else
         echo "docker-compose is installed"
         compose_cmd="docker-compose"
     else
-        echo "docker-compose is not installed"
+        echo "$FAILMSG: docker-compose is not installed"
         exit 1
     fi
 fi
@@ -104,7 +104,7 @@ $compose_cmd down
 echo "Creating backup for resources directory and docker-compose.yml"
 cd $base_dir
 if [ -d ./backup ]; then
-    echo "Directory backup exists in $base_dir"
+    echo "$FAILMSG: Directory backup exists in $base_dir"
     exit 1
 fi
 
@@ -145,12 +145,16 @@ sed -i "s/^\(host\s*=\s*\).*\$/\1$node_host/" config-node.properties
 sed -i "s/^\(friendlyName\s*=\s*\).*\$/friendlyName = $friendly_name/" config-node.properties
 cd $base_dir
 # instructions
-echo "
-###########################################################################
-## Configuration complete.  To start your sirius chain, run the following:
-
-cd $base_dir
-$compose_cmd up -d
-
-###########################################################################
-"
+echo "###########################################################################"
+echo "## Configuration complete.  To start your sirius chain, run the following:"
+echo
+echo "    cd $base_dir"
+echo "    $compose_cmd up -d"
+echo 
+if [ $is_harvest_enabled == "true" ]; then
+    echo "Check here: https://explorer.xpxsirius.io/#/harvester to see whether"
+    echo "the public key of harvestKey is registered in Sirius Chain."
+fi
+echo
+echo "###########################################################################"
+echo
