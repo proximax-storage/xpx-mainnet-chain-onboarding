@@ -137,7 +137,7 @@ curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-timesync.properties
 # curl -O --silent DONT'T UPDATE https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-user.properties
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/peers-api.json
-curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/peers-api.json
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/peers-p2p.json
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/supported-entities.json
 
 echo "Updating config files"
