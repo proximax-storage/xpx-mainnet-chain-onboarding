@@ -51,7 +51,17 @@ chmod +x ./upgrade_util
 ./upgrade_util
 ```
 
-After the tool completes its work successfully, run the node with command:
+After the tool completes its work successfully, run the following steps:
+```
+cd resources
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/release-v1.4.2/docker-method/resources/peers-api.json
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/release-v1.4.2/docker-method/resources/peers-p2p.json
+sed -i "s/^\(minFeeMultiplier\s*=\s*\).*\$/minFeeMultiplier = 140'000/" config-node.properties
+```
+
+The above updates the peer files and fee multiplier.  In future, the above steps will be included in the `upgrade_util` tool/
+
+Once the post-upgrade configuration steps are done, run the node with command:
 ```bash
 docker-compose up -d
 ```
