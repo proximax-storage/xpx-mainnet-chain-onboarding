@@ -46,12 +46,12 @@ The `upgrade_util` CLI tool will:
 
 Run the following commands to download and execute the `upgrade_util` CLI:
 ```bash 
-wget https://github.com/proximax-storage/xpx-mainnet-chain-onboarding/raw/master/upgrade/upgrade_util
+wget https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/release-v1.4.2/upgrade/upgrade_util
 chmod +x ./upgrade_util
 ./upgrade_util
 ```
 
 After the tool completes its work successfully, run the node with command:
-```
+```bash
 docker-compose up -d
 ```
