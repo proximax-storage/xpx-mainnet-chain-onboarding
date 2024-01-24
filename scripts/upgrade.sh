@@ -65,9 +65,21 @@ printf "BootKey is "; mask $boot_key
 printf "HarvestKey is "; mask $harvest_key
 
 if [ $boot_key == $harvest_key ]; then
-  echo "$FAILMSG: Node bootkey conflicts with harvest key.  Please update the Node Bootkey"
-  # TODO script to update node bootkey
-  exit 1
+    while true; do
+        read -p "Node bootkey conflicts with harvest key.  Replace Node Bootkey with a new random generated key? (y/n) " yn
+        case $yn in 
+            [yY] ) echo ok, we will proceed;
+                    break;;
+            [nN] ) echo exiting...;
+                    exit;;
+            * ) echo invalid response;
+        esac
+    done
+    
+    wget -P /tmp/ https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/docker-method/tools/gen_keypair_addr
+    chmod +x /tmp/gen_keypair_addr
+    new_bootkey=$(/tmp/gen_keypair_addr | awk 'NR==2 { print $2 }')
+    sed -i "s/^\(bootKey\s*=\s*\).*\$/\1$new_bootkey/" config-user.properties
 fi
 
 while true; do
