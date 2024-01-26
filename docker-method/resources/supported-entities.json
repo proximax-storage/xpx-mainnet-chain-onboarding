@@ -61,7 +61,8 @@
             "type": "33091",
             "supportedVersions": [
                 3,
-                4
+                4,
+                5
             ]
         },
         {
@@ -210,6 +211,13 @@
         {
             "name": "addDbrbProcess",
             "type": "16748",
+            "supportedVersions": [
+                2
+            ]
+        },
+        {
+            "name": "removeDbrbProcess",
+            "type": "17004",
             "supportedVersions": [
                 1
             ]
