@@ -135,7 +135,7 @@ docker container ls
 
 ## Stop the Peer Node
 ```sh
-docker-compose down
+docker-compose down --timeout 150
 ```
 
 ## Restart the Peer Node

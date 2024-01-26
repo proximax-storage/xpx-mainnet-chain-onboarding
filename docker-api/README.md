@@ -157,7 +157,7 @@ Refer to [here](https://bcdocs.xpxsirius.io/endpoints/) to get the full list of 
 
 ## Stop the API Node
 ```
-docker-compose down
+docker-compose down --timeout 150
 ```
 
 ## Restart the API Node
