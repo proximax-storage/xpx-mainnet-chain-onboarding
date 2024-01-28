@@ -65,3 +65,18 @@ Once the post-upgrade configuration steps are done, run the node with command:
 ```bash
 docker-compose up -d
 ```
+
+## Upgrading from v1.4.2 to v1.5.0
+
+Run the following commands to download and execute the `upgrade.sh` script:
+```bash 
+wget https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/release-v1.5.0/scripts/upgrade.sh
+chmod +x ./upgrade.sh
+./upgrade.sh
+```
+
+Once the `upgrade.sh` script has completed the configuration, run the node with command:
+```bash
+cd $base_dir #where $base_dir is the directory of your node installation
+docker-compose up -d
+```
