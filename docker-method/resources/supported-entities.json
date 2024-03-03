@@ -223,6 +223,13 @@
             ]
         },
         {
+			"name": "removeDbrbProcessByNetwork",
+			"type": "17260",
+			"supportedVersions": [
+                1
+            ]
+		},
+        {
             "name": "exchange",
             "type": "16989",
             "supportedVersions": [
