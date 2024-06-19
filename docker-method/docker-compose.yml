@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   mainnet-peer:
-    image: proximax/proximax-sirius-chain:v1.5.3-bullseye
+    image: proximax/proximax-sirius-chain:v1.7.3-bullseye
     ports:
       - 7903:7903
       - 7902:7902
