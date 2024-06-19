@@ -62,7 +62,8 @@
             "supportedVersions": [
                 3,
                 4,
-                5
+                5,
+                6
             ]
         },
         {
@@ -262,6 +263,13 @@
             "type": "17002",
             "supportedVersions": [
                 1
+            ]
+        },
+        {
+            "name": "replicatorOnboarding",
+            "type": "18018",
+            "supportedVersions": [
+                2
             ]
         }
     ]
