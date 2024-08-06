@@ -49,6 +49,7 @@ boot_key=$(sed -n '/^bootKey\s*=\s*/{s/^bootKey\s*=\s*//;p}' config-user.propert
 harvest_key=$(sed -n '/^harvestKey\s*=\s*/{s/^harvestKey\s*=\s*//;p}' config-harvesting.properties)
 node_role=$(sed -n -e '/roles/ s/.*= *//p' config-node.properties)
 is_harvest_enabled=$(sed -n '/^isAutoHarvestingEnabled\s*=\s*/{s/^isAutoHarvestingEnabled\s*=\s*//;p}' config-harvesting.properties)
+is_dbrb_process=$(sed -n '/^isDbrbProcess\s*=\s*/{s/^isDbrbProcess\s*=\s*//;p}' config-dbrb.properties)
 # TODO check if node is harvesting.  
 # If yes and to upgrade above v0.9.0, check that harvest key is registered as harvester
 
@@ -147,7 +148,7 @@ curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-pt.properties
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-task.properties
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-timesync.properties
-# curl -O --silent DONT'T UPDATE https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-user.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-user.properties
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/peers-api.json
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/peers-p2p.json
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/supported-entities.json
@@ -155,6 +156,8 @@ curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-
 echo "Updating config files"
 sed -i "s/^\(host\s*=\s*\).*\$/\1$node_host/" config-node.properties
 sed -i "s/^\(friendlyName\s*=\s*\).*\$/friendlyName = $friendly_name/" config-node.properties
+sed -i "s/BOOTKEY_PRIVATE_KEY/$boot_key/" config-user.properties
+sed -i "s/^\(isDbrbProcess\s*=\s*\).*\$/isDbrbProcess = $is_dbrb_process/" config-dbrb.properties
 cd $base_dir
 # instructions
 echo "###########################################################################"
