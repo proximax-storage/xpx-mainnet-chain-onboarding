@@ -1,10 +1,10 @@
 # Upgrade Notes
 
-## Upgrading to v1.8.1
+## Upgrading to v1.8.2
 
 Run the following commands to download and execute the `upgrade.sh` script:
 ```bash 
-wget https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/release-v1.8.1/scripts/upgrade.sh
+wget https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/release-v1.8.2/scripts/upgrade.sh
 chmod +x ./upgrade.sh
 ./upgrade.sh
 ```

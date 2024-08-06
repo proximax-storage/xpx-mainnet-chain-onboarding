@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   mainnet-peer:
-    image: proximax/proximax-sirius-chain:v1.8.1-bullseye
+    image: proximax/proximax-sirius-chain:v1.8.2-bookworm
     ports:
       - 7903:7903
       - 7902:7902
@@ -11,5 +11,7 @@ services:
       - ./:/chainconfig
       - ./data:/data:rw
       - ./logs:/logs:rw
-    restart: on-failure:3
+    entrypoint: /bin/bash
+    command: -c "rm -f /data/server.lock && /sirius/bin/sirius.bc /chainconfig"
+    restart: on-failure
     
