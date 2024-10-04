@@ -1,0 +1,16 @@
+{
+    "_info": "this file contains a list of bootstrap replicators",
+    "knownPeers": [
+      {
+        "publicKey": "",
+        "endpoint": {
+          "host": "",
+          "port": 7904
+        },
+        "metadata": {
+          "name": "",
+          "roles": "Api"
+        }
+      }
+    ]
+  }
