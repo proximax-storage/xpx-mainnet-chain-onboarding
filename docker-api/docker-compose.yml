@@ -17,16 +17,23 @@ services:
 
   catapult-api-node:
     # Downloads Catapult Server from specified Docker repo
-    image: proximax/proximax-sirius-chain:v1.8.4-bookworm
+    image: proximax/proximax-sirius-chain:v1.9.0-bookworm
     ports:
       - 7903:7903
       - 7902:7902
       - 7900:7900
       - 7901:7901
+      - 7904:7904/udp
+      - 7904:7904/tcp
+      - 25401:25401/tcp
+      - 25401:25401/udp
+      - 6881-6889:6881-6889/tcp
+      - 6881-6889:6881-6889/udp
     volumes:
       - ./:/chainconfig
       - ./data:/data:rw
       - ./logs:/logs:rw
+      - ./replicator_service_logs:/tmp/replicator_service_logs:rw
     entrypoint: /bin/bash
     command: -c "rm -rf /data/server.lock && /sirius/bin/sirius.bc /chainconfig"
     restart: on-failure

@@ -4,7 +4,7 @@
 # VARS:
 DEFAULT_PATH="/mnt/siriuschain/"
 SERVICENAME="mainnet-peer"
-SIRIUS_CHAIN_VERSION="release-v1.8.4"
+SIRIUS_CHAIN_VERSION="release-v1.9.0"
 DOCKERFOLDER='docker-method'
 FAILMSG="UPGRADE FAIL"
 
@@ -47,6 +47,7 @@ node_host=$(sed -n '/^host\s*=\s*/{s/^host\s*=\s*//;p}' config-node.properties)
 friendly_name=$(sed -n '/^friendlyName\s*=\s*/{s/^friendlyName\s*=\s*//;p}' config-node.properties)
 boot_key=$(sed -n '/^bootKey\s*=\s*/{s/^bootKey\s*=\s*//;p}' config-user.properties)
 harvest_key=$(sed -n '/^harvestKey\s*=\s*/{s/^harvestKey\s*=\s*//;p}' config-harvesting.properties)
+replicator_key=$(sed -n '/^key\s*=\s*/{s/^key\s*=\s*//;p}' config-storage.properties)
 node_role=$(sed -n -e '/roles/ s/.*= *//p' config-node.properties)
 is_harvest_enabled=$(sed -n '/^isAutoHarvestingEnabled\s*=\s*/{s/^isAutoHarvestingEnabled\s*=\s*//;p}' config-harvesting.properties)
 is_dbrb_process=$(sed -n '/^isDbrbProcess\s*=\s*/{s/^isDbrbProcess\s*=\s*//;p}' config-dbrb.properties)
@@ -64,6 +65,7 @@ echo "Host is $node_host"
 echo "Node is: " $node_role
 printf "BootKey is "; mask $boot_key
 printf "HarvestKey is "; mask $harvest_key
+printf "ReplicatorKey is "; mask $replicator_key
 
 if [ $boot_key == $harvest_key ]; then
     while true; do
@@ -146,6 +148,7 @@ curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-networkheight.properties
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-node.properties
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-pt.properties
+curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-storage.properties
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-task.properties
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-timesync.properties
 curl -O --silent https://raw.githubusercontent.com/proximax-storage/xpx-mainnet-chain-onboarding/$SIRIUS_CHAIN_VERSION/$DOCKERFOLDER/resources/config-user.properties
@@ -157,6 +160,7 @@ echo "Updating config files"
 sed -i "s/^\(host\s*=\s*\).*\$/\1$node_host/" config-node.properties
 sed -i "s/^\(friendlyName\s*=\s*\).*\$/friendlyName = $friendly_name/" config-node.properties
 sed -i "s/BOOTKEY_PRIVATE_KEY/$boot_key/" config-user.properties
+sed -i "s/REPLICATOR_PRIVATE_KEY/$replicator_key/" config-storage.properties
 sed -i "s/^\(isDbrbProcess\s*=\s*\).*\$/isDbrbProcess = $is_dbrb_process/" config-dbrb.properties
 cd $base_dir
 # instructions
