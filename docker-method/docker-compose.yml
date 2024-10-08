@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   mainnet-peer:
-    image: proximax/proximax-sirius-chain:v1.9.0-bookworm
+    image: proximax/proximax-sirius-chain:v1.9.1-bookworm
     ports:
       - 7900:7900
       - 7901:7901
