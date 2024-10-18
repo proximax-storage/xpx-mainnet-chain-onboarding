@@ -2,14 +2,113 @@
     "_info": "this file contains a list of bootstrap replicators",
     "knownPeers": [
       {
-        "publicKey": "",
+        "publicKey": "809e09d049f6d261716764b5d980811e3ffff518f34ca5819a851a5ce08dfdee",
         "endpoint": {
-          "host": "",
+          "host": "replicator-1.dfms.io",
           "port": 7904
         },
         "metadata": {
-          "name": "",
-          "roles": "Api"
+          "name": "replicator-1",
+          "roles": "Peer"
+        }
+      },
+      {
+        "publicKey": "809efd4148639c0528a4bfd80ed73dc11a9171876e8f03f4d1762e9ef2a966be",
+        "endpoint": {
+          "host": "replicator-2.dfms.io",
+          "port": 7904
+        },
+        "metadata": {
+          "name": "replicator-2",
+          "roles": "Peer"
+        }
+      },
+      {
+        "publicKey": "dde11a5e38a3b9186c8f0daf2bb5a6963ac6a0613b765e73895aa9b5eedfbf33",
+        "endpoint": {
+          "host": "replicator-3.dfms.io",
+          "port": 7904
+        },
+        "metadata": {
+          "name": "replicator-3",
+          "roles": "Peer"
+        }
+      },
+      {
+        "publicKey": "562d4edf5e0ada67cc1c9543bfed87d44e238552b04c93ff22110c0578b1f799",
+        "endpoint": {
+          "host": "replicator-4.dfms.io",
+          "port": 7904
+        },
+        "metadata": {
+          "name": "replicator-4",
+          "roles": "Peer"
+        }
+      },
+      {
+        "publicKey": "6c9aef2d552d9ceb2ff5fe8d91e19563326cb0af9a21119635bf7b4e7c47892b",
+        "endpoint": {
+          "host": "replicator-5.dfms.io",
+          "port": 7904
+        },
+        "metadata": {
+          "name": "replicator-5",
+          "roles": "Peer"
+        }
+      },
+      {
+        "publicKey": "9df804c570c0b7782992b8b2563c0eccc712fc9d1427fd69ae078d679f7e3381",
+        "endpoint": {
+          "host": "replicator-6.dfms.io",
+          "port": 7904
+        },
+        "metadata": {
+          "name": "replicator-6",
+          "roles": "Peer"
+        }
+      },
+      {
+        "publicKey": "22d531f84c8a2435aae9c26b4d963493658da5cf614f38c8204f4b642fc38ab5",
+        "endpoint": {
+          "host": "replicator-7.dfms.io",
+          "port": 7904
+        },
+        "metadata": {
+          "name": "replicator-7",
+          "roles": "Peer"
+        }
+      },
+      {
+        "publicKey": "c56d859ab7e6df8df903268ae360a8b1d7fa51d760af317bb4971fa1215c60a2",
+        "endpoint": {
+          "host": "replicator-8.dfms.io",
+          "port": 7904
+        },
+        "metadata": {
+          "name": "replicator-8",
+          "roles": "Peer"
+        }
+      },
+      {
+        "publicKey": "faf2437e23194a5b590bb9350a2efbf4a4f40020fdd259a61fa8486bfd83625a",
+        "endpoint": {
+          "host": "replicator-9.dfms.io",
+          "port": 7904
+        },
+        "metadata": {
+          "name": "replicator-9",
+          "roles": "Peer"
+        }
+      },
+      {
+        "publicKey": "6a13c17707a83addab4b97a05659e4ce346265180654535931838df4668e9ef6",
+        "endpoint": {
+          "host": "replicator-10.dfms.io",
+          "port": 7904
+        },
+        "metadata": {
+          "name": "replicator-10",
+          "roles": "Peer"
         }
       }
     ]
