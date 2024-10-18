@@ -251,12 +251,26 @@
             ]
         },
         {
+            "name": "createLiquidityProvider",
+            "type": "16745",
+            "supportedVersions": [
+                1
+            ]
+        },
+        {
             "name": "placeSdaExchangeOffer",
             "type": "16746",
             "supportedVersions": [
                 1
             ]
         },
+        {
+            "name": "manualRateChange",
+            "type": "17001",
+            "supportedVersions": [
+                1
+            ]
+        },        
         {
             "name": "removeExchangeOffer",
             "type": "17245",
