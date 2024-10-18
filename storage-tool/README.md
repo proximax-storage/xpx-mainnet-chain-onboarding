@@ -5,6 +5,7 @@ The Sirius Storage Tool is a user desktop app to interact with Sirius Storage.
 ## Download
 [Windows](https://files.proximax.io/storage-tool/windows-storage-tool.zip)
 [Linux](https://files.proximax.io/storage-tool/linux-storage-tool.tar.xz)
+[MacOS](https://files.proximax.io/storage-tool/macos-storage-tool.dmg)
 
 ## Installation
 
@@ -40,13 +41,24 @@ cd linux-storage-tool
 - Local UDP Port: `6846` (Default Port)
 - Account Name: **Select the Account Name is Step 1**
 - Download folder: **Click `Choose Directory` to select the directory you want to download files from drives**
-- Fee Multiplier: `140000` (default fee multiplier for *Mainnet*)
+- Fee Multiplier: `150000` (default fee multiplier for *Mainnet*)
 
 ## Creating Drive
 
+![image](storage-tool-ui.png)
 1. In the main page, select `Drives` page tab.
 2. Click `+` to create a new Drive.
 3. Enter a name for the Drive you wish to create
 4. Replicator Number should be set to `4`.
 5. Max Drive Size (MB) should not be larger than 500MB.
 6. Click `Choose Directory` to select a local drive folder to sync with your storage drive.
+7. When you are done, click **Confirm** button.
+8. Your drive will now appear in the drop-down list of drives with (`creating...`) appended to its name, indicating that it has been ordered, but not created yet. You will receive a notification as soon as it is created.
+9. When the drive is created, your files will appear in green color in the right half of the window. The right half represents the difference between your local drive and replicated drive. Click **Apply changes** button to upload the files to replicators.
+10. When the modification is completed, your files will appear in the left half of the window, indicating that the replicated drive now contains them.
+
+## Instruction Videos
+[Initial instruction](https://youtu.be/euMrxMNK88o) - drive creation, uploading & deleting files
+
+[Download instruction](https://youtu.be/vV6s8WzhZCk) - downloads from other drives by link
+
