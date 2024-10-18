@@ -2,9 +2,12 @@
 
 The Sirius Storage Tool is a user desktop app to interact with Sirius Storage.
 
-## Download
+## Download links
+
 [Windows](https://files.proximax.io/storage-tool/windows-storage-tool.zip)
+
 [Linux](https://files.proximax.io/storage-tool/linux-storage-tool.tar.xz)
+
 [MacOS](https://files.proximax.io/storage-tool/macos-storage-tool.dmg)
 
 ## Installation
