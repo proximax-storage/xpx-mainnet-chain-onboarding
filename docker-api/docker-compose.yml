@@ -41,7 +41,7 @@ services:
     - db
 
   rest-gateway:
-    image: proximax/proximax-sirius-rest:v0.10.0
+    image: proximax/proximax-sirius-rest:v0.10.1
     ports:
     - "3000:3000"
     volumes:
