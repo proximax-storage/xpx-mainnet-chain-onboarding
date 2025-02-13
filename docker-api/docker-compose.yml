@@ -17,7 +17,7 @@ services:
 
   catapult-api-node:
     # Downloads Catapult Server from specified Docker repo
-    image: proximax/proximax-sirius-chain:v1.9.2-bookworm
+    image: proximax/proximax-sirius-chain:v1.9.3-bookworm
     ports:
       - 7903:7903
       - 7902:7902
