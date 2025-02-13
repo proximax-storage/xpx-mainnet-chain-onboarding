@@ -4,7 +4,7 @@
 # VARS:
 DEFAULT_PATH="/mnt/siriuschain/"
 SERVICENAME="mainnet-peer"
-SIRIUS_CHAIN_VERSION="release-v1.9.2"
+SIRIUS_CHAIN_VERSION="release-v1.9.3"
 DOCKERFOLDER='docker-method'
 FAILMSG="UPGRADE FAIL"
 
