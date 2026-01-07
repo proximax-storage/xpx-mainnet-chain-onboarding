@@ -38,30 +38,6 @@
 			}
 		},
 		{
-			"publicKey":"D4EBE7785E4BFBCA53D33C27D7953216EF7E2B410731BF3B0A099C77D039BC4D",
-			"endpoint":{
-				"host":"bigcalvin.xpxsirius.io",
-				"port":7900,
-				"dbrbPort":7903
-			},
-			"metadata":{
-				"name":"bigcalvin",
-				"roles":"Api"
-			}
-		},
-		{
-			"publicKey":"F0928275E7D8A06AF0E0438CE864BB80F1049FA4854D79E969EAD898E9F26836",
-			"endpoint":{
-				"host":"delphinus.xpxsirius.io",
-				"port":7900,
-				"dbrbPort":7903
-			},
-			"metadata":{
-				"name":"delphinus",
-				"roles":"Api"
-			}
-		},
-		{
 			"publicKey":"4C034D9CB4886D95C12DAD4157F74C502C92F4297668E4AB3140823CA8E9A8F1",
 			"endpoint":{
 				"host":"lyrasithara.xpxsirius.io",
