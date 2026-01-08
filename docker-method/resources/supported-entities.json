@@ -379,9 +379,7 @@
         {
             "name": "replicatorsCleanup",
             "type": "16482",
-            "supportedVersions": [
-                2
-            ]
+            "supportedVersions": []
         },
         {
             "name": "storagePayment",
